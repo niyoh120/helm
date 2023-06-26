@@ -4,19 +4,39 @@
 
 aria2RPCSecret: aria2rpc
 
-pvc:
-  storageClassName: local-path
-  storageSize: 256Mi
-
-downloadsPath: /mnt/downloads
+downloadsPath: &downloadsPath /mnt/downloads
 
 replicaCount: 1
 
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: false
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext:
+  {}
+  # fsGroup: 2000
+
+securityContext:
+  {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
 image:
   repository: p3terx/aria2-pro
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "latest"
+  tag: ""
 
   env:
     - name: TZ
@@ -29,31 +49,52 @@ image:
       value: 64M
     - name: IPV6_MODE
       value: "false"
+    - name: RPC_SECRET
+      valueFrom:
+        secretKeyRef:
+          name: aria2-secret
+          key: rpc-secret
 
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
-podAnnotations: {}
-
 service:
   type: ClusterIP
   port: 6800
 
-
 ingress:
   enabled: true
   className: traefik
-  CertManagerClusterIssuerName: letsencrypt-staging
+  certManagerClusterIssuerName: letsencrypt-staging
+  annotations: {}
   hosts:
     - host: aria2-rpc.niyoh.top
       paths:
         - path: /
-          pathType: Prefix
+          pathType: ImplementationSpecific
   tls:
-    - secretName: aria2-rpc-hosts-tls
+    - secretName: aria2-rpc-tls-secret
       hosts:
         - aria2-rpc.niyoh.top
 
 autoscaling:
   enabled: false
+
+pvc:
+  name: "aria2-pvc"
+  storageSize: "256Mi"
+
+volumes:
+  - name: aria2-storage
+    persistentVolumeClaim:
+      claimName: "aria2-pvc"
+  - name: arai2-downloads
+    hostPath:
+      path: *downloadsPath
+
+volumeMounts:
+  - mountPath: /config
+    name: aria2-storage
+  - mountPath: /downloads
+    name: arai2-downloads

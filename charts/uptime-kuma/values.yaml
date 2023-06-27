@@ -10,6 +10,9 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
+  env:
+    - name: TZ
+      value: Asia/Shanghai
 
 serviceAccount:
   # Specifies whether a service account should be created
@@ -22,10 +25,12 @@ serviceAccount:
 
 podAnnotations: {}
 
-podSecurityContext: {}
+podSecurityContext:
+  {}
   # fsGroup: 2000
 
-securityContext: {}
+securityContext:
+  {}
   # capabilities:
   #   drop:
   #   - ALL
@@ -41,20 +46,22 @@ ingress:
   enabled: true
   className: "traefik"
   certManagerClusterIssuerName: letsencrypt-staging
-  annotations: {}
+  annotations:
+    {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: test.niyoh.top
+    - host: kuma.niyoh.top
       paths:
         - path: /
           pathType: ImplementationSpecific
-  tls: 
-   - secretName: uptime-kuma-tls-secret
-     hosts:
-       - test.niyoh.top
+  tls:
+    - secretName: uptime-kuma-tls-secret
+      hosts:
+        - kuma.niyoh.top
 
-resources: {}
+resources:
+  {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
@@ -85,10 +92,9 @@ pvc:
 
 volumes:
   - name: uptime-kuma-storage
-    persistentVolumeClaim: 
-      claimName: "uptime-kuma-pvc" 
+    persistentVolumeClaim:
+      claimName: "uptime-kuma-pvc"
 
 volumeMounts:
   - mountPath: /config
     name: uptime-kuma-storage
-    

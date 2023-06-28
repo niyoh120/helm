@@ -1,0 +1,93 @@
+# Default values for qbittorrent.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+qbittorrentRPCSecret: qbittorrentrpc
+
+downloadsPath: &downloadsPath /mnt/downloads
+
+replicaCount: 1
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: false
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext:
+  {}
+  # fsGroup: 2000
+
+securityContext:
+  {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+image:
+  repository: superng6/qbittorrentee
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+
+  env:
+    - name: TZ
+      value: Asia/Shanghai
+    - name: WEBUIPORT
+      value: "8080"
+    - name: PUID
+      value: "0"
+    - name: PGID
+      value: "0"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+service:
+  type: ClusterIP
+  port: 8080
+
+ingress:
+  enabled: true
+  className: traefik
+  certManagerClusterIssuerName: ""
+  annotations: {}
+  hosts:
+    - host: qb.niyoh.top
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls:
+    - secretName: qbittorrent-rpc-tls-secret
+      hosts:
+        - qb.niyoh.top
+
+autoscaling:
+  enabled: false
+
+pvc:
+  name: qbittorrent-pvc
+  storageSize: "256Mi"
+
+volumes:
+  - name: qbittorrent-storage
+    persistentVolumeClaim:
+      claimName: qbittorrent-pvc
+  - name: qbittorrent-downloads
+    hostPath:
+      path: *downloadsPath
+
+volumeMounts:
+  - mountPath: /config
+    name: qbittorrent-storage
+  - mountPath: /downloads
+    name: qbittorrent-downloads

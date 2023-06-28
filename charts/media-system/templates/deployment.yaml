@@ -1,0 +1,145 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "media-system.fullname" . }}
+  labels:
+    {{- include "media-system.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "media-system.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "media-system.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "media-system.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      volumes:
+        - name: media-system-storage
+          persistentVolumeClaim:
+            claimName: {{ .Values.pvc.name }}
+        - name: media-system-library
+          hostPath:
+            path: /mnt/media
+        - name: media-system-downloads
+          hostPath:
+            path: /mnt/downloads
+      containers:
+        - name: sonarr
+          image: lscr.io/linuxserver/sonarr:latest
+          env:
+            - name: PUID
+              value: "0"
+            - name: PGID
+              value: "0"
+            - name: TZ
+              value: Asia/Shanghai
+          ports:
+            - containerPort: 8989
+          volumeMounts:
+            - mountPath: /config
+              name: media-system-storage
+              subPath: sonarr
+            - mountPath: /downloads
+              name: media-system-downloads
+            - mountPath: /data
+              name: media-system-library
+        - name: radarr
+          image: lscr.io/linuxserver/radarr:latest
+          env:
+            - name: PUID
+              value: "0"
+            - name: PGID
+              value: "0"
+            - name: TZ
+              value: Asia/Shanghai
+          ports:
+            - containerPort: 7878
+          volumeMounts:
+            - mountPath: /config
+              name: media-system-storage
+              subPath: radarr
+            - mountPath: /downloads
+              name: media-system-downloads
+            - mountPath: /data
+              name: media-system-library
+        - name: prowlarr
+          image: lscr.io/linuxserver/prowlarr:latest
+          env:
+            - name: TZ
+              value: Asia/Shanghai
+          ports:
+            - containerPort: 9696
+          volumeMounts:
+            - mountPath: /config
+              name: media-system-storage
+              subPath: prowlarr
+        - name: jellyseerr
+          image: fallenbagel/jellyseerr:1.5.0
+          env:
+            - name: TZ
+              value: Asia/Shanghai
+          ports:
+            - containerPort: 5055
+          volumeMounts:
+            - mountPath: /app/config
+              name: media-system-storage
+              subPath: jellyseerr
+        - name: jproxy
+          image: luckypuppy514/jproxy:latest
+          env:
+            - name: TZ
+              value: Asia/Shanghai
+          ports:
+            - containerPort: 8117
+          volumeMounts:
+            - mountPath: /app/database
+              name: media-system-storage
+              subPath: jproxy
+        - name: chinesesubfinder
+          image: allanpk716/chinesesubfinder:latest
+          env:
+            - name: PUID
+              value: "0"
+            - name: PGID
+              value: "0"
+            - name: PERMS
+              value: "false"
+            - name: TZ
+              value: Asia/Shanghai
+          ports:
+            - containerPort: 19035
+          volumeMounts:
+            - mountPath: /config
+              name: media-system-storage
+              subPath: chinesesubfinder
+            - mountPath: /media
+              name: media-system-library
+          securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

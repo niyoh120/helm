@@ -89,7 +89,7 @@ volumes:
   - name: aria2-storage
     persistentVolumeClaim:
       claimName: "aria2-pvc"
-  - name: arai2-downloads
+  - name: aria2-downloads
     hostPath:
       path: *downloadsPath
 
@@ -97,4 +97,4 @@ volumeMounts:
   - mountPath: /config
     name: aria2-storage
   - mountPath: /downloads
-    name: arai2-downloads
+    name: aria2-downloads

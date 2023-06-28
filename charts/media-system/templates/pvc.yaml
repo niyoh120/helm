@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: media-system-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  media-system-storageClassName: local-path
+  resources:
+    requests:
+      media-system-storage: 1Gi

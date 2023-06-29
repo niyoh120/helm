@@ -4,7 +4,7 @@
   {{- $_ := set .Values.ingress.annotations "kubernetes.io/ingress.class" .Values.ingress.className}}
   {{- end }}
 {{- end }}
-{{- if and .Values.ingress.tls .Values.ingress.certManagerClusterIssuerName -}}
+{{- if .Values.ingress.certManagerClusterIssuerName -}}
   {{- $_ := set .Values.ingress.annotations "cert-manager.io/cluster-issuer" .Values.ingress.certManagerClusterIssuerName }}
 {{- end }}
 {{- if semverCompare ">=1.19-0" .Capabilities.KubeVersion.GitVersion -}}

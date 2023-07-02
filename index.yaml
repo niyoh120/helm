@@ -131,34 +131,6 @@ entries:
   jellyfin:
   - apiVersion: v2
     appVersion: latest
-    created: "2023-07-02T17:21:01.711927281Z"
-    dependencies:
-    - name: http-libchart
-      repository: https://niyoh120.github.io/helm-charts
-      version: 0.1.0
-    description: A jellyfin Helm chart for Kubernetes
-    digest: ec43377c84a3172cf52ee42a8f7d93dcf115a768711195eb6ae7dbce5524cad2
-    name: jellyfin
-    type: application
-    urls:
-    - https://github.com/niyoh120/helm-charts/releases/download/jellyfin-0.1.3/jellyfin-0.1.3.tgz
-    version: 0.1.3
-  - apiVersion: v2
-    appVersion: latest
-    created: "2023-07-02T15:15:15.828788653Z"
-    dependencies:
-    - name: http-libchart
-      repository: https://niyoh120.github.io/helm-charts
-      version: 0.1.0
-    description: A jellyfin Helm chart for Kubernetes
-    digest: bbb13edee26ed4591fc8dc7eba87385bb34d1d6e12437675a3e490e1044d67c9
-    name: jellyfin
-    type: application
-    urls:
-    - https://github.com/niyoh120/helm-charts/releases/download/jellyfin-0.1.2/jellyfin-0.1.2.tgz
-    version: 0.1.2
-  - apiVersion: v2
-    appVersion: latest
     created: "2023-06-28T09:46:37.073363993Z"
     dependencies:
     - name: http-libchart
@@ -172,20 +144,6 @@ entries:
     - https://github.com/niyoh120/helm-charts/releases/download/jellyfin-0.1.1/jellyfin-0.1.1.tgz
     version: 0.1.1
   media-system:
-  - apiVersion: v2
-    appVersion: latest
-    created: "2023-07-02T16:12:56.760493061Z"
-    dependencies:
-    - name: jellyfin
-      repository: https://niyoh120.github.io/helm-charts
-      version: 0.1.2
-    description: A media-system Helm chart for Kubernetes
-    digest: a7225ddb3a5d11227659409e3e4357c27c78c3c68f04a2f0de01696496f4bc72
-    name: media-system
-    type: application
-    urls:
-    - https://github.com/niyoh120/helm-charts/releases/download/media-system-0.1.2/media-system-0.1.2.tgz
-    version: 0.1.2
   - apiVersion: v2
     appVersion: latest
     created: "2023-06-29T09:42:57.183060834Z"
@@ -288,4 +246,4 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/uptime-kuma-0.1.0/uptime-kuma-0.1.0.tgz
     version: 0.1.0
-generated: "2023-07-02T17:21:01.711958882Z"
+generated: "2023-07-02T17:23:09.77518145Z"

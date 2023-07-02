@@ -1,0 +1,277 @@
+apiVersion: v1
+entries:
+  alist:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2023-06-27T12:44:28.184195239Z"
+    dependencies:
+    - name: http-libchart
+      repository: https://niyoh120.github.io/helm-charts
+      version: 0.1.0
+    description: A alist Helm chart for Kubernetes
+    digest: fd207360c3d8e2b053136f4d250ab2dc1d64d2cd7421b748d7dd113da7b2259c
+    name: alist
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/alist-0.1.0/alist-0.1.0.tgz
+    version: 0.1.0
+  alist-xiaoya:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2023-06-26T14:48:50.24367358Z"
+    dependencies:
+    - name: http-libchart
+      repository: https://niyoh120.github.io/helm-charts
+      version: 0.1.0
+    description: A alist-xiaoya Helm chart for Kubernetes
+    digest: 253df2089c363b2bfdb3b91003b4aa77d3d2a015a8173ec748aa846c6fbb52f6
+    name: alist-xiaoya
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/alist-xiaoya-0.1.0/alist-xiaoya-0.1.0.tgz
+    version: 0.1.0
+  aria2:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2023-06-28T09:17:42.6324193Z"
+    dependencies:
+    - name: http-libchart
+      repository: https://niyoh120.github.io/helm-charts
+      version: 0.1.0
+    description: A aria2 Helm chart for Kubernetes
+    digest: 3d3ccbdd43f532562dcca27d86444800cc83e01d339e4fcdb71529377e215e64
+    name: aria2
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/aria2-0.1.2/aria2-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: latest
+    created: "2023-06-26T12:53:09.659896906Z"
+    dependencies:
+    - name: http-libchart
+      repository: https://niyoh120.github.io/helm-charts
+      version: 0.1.0
+    description: A aria2 Helm chart for Kubernetes
+    digest: 177e449c19167ac66cf51d7ed6774580d14b0ab7dbe9aa58c98eadb1e95dd26b
+    name: aria2
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/aria2-0.1.1/aria2-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: latest
+    created: "2023-06-26T12:38:34.137661996Z"
+    dependencies:
+    - name: http-libchart
+      repository: https://niyoh120.github.io/helm-charts
+      version: 0.1.0
+    description: A aria2 Helm chart for Kubernetes
+    digest: d3cf1212cc960bb86b4a78417736a19bf7bfcc298df7360a8a9560abe50bb6c5
+    name: aria2
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/aria2-0.1.0/aria2-0.1.0.tgz
+    version: 0.1.0
+  calibre-web:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2023-06-27T14:07:13.576703276Z"
+    dependencies:
+    - name: http-libchart
+      repository: https://niyoh120.github.io/helm-charts
+      version: 0.1.0
+    description: A calibre-web Helm chart for Kubernetes
+    digest: ae18925af45ec1358f361741b2dcb8ce9eb68cafe2854ad9ccf7c1a41210f477
+    name: calibre-web
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/calibre-web-0.1.1/calibre-web-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: latest
+    created: "2023-06-27T12:44:28.342555816Z"
+    dependencies:
+    - name: http-libchart
+      repository: https://niyoh120.github.io/helm-charts
+      version: 0.1.0
+    description: A calibre-web Helm chart for Kubernetes
+    digest: 2789d0c4de5ff802f4173b0dddef5086cbc44041be690fc1c42c877fe0cc5cf7
+    name: calibre-web
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/calibre-web-0.1.0/calibre-web-0.1.0.tgz
+    version: 0.1.0
+  fresh-rss:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2023-06-27T12:44:28.50434049Z"
+    dependencies:
+    - name: http-libchart
+      repository: https://niyoh120.github.io/helm-charts
+      version: 0.1.0
+    description: A fresh-rss Helm chart for Kubernetes
+    digest: 4234771d88fc2f167d9bb01bc9c16d7dcee19c3804c7e1bf4f1d2de227efa67a
+    name: fresh-rss
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/fresh-rss-0.1.0/fresh-rss-0.1.0.tgz
+    version: 0.1.0
+  http-libchart:
+  - apiVersion: v2
+    appVersion: 0.0.1
+    created: "2023-06-26T12:15:37.77529788Z"
+    description: A HTTP Helm chart library for Kubernetes
+    digest: f88744ffed0e2447181a1a962c832d33a56fd2f40b822b0a3e59f16a938bc1db
+    name: http-libchart
+    type: library
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/http-libchart-0.1.0/http-libchart-0.1.0.tgz
+    version: 0.1.0
+  jellyfin:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2023-07-02T15:15:15.828788653Z"
+    dependencies:
+    - name: http-libchart
+      repository: https://niyoh120.github.io/helm-charts
+      version: 0.1.0
+    description: A jellyfin Helm chart for Kubernetes
+    digest: bbb13edee26ed4591fc8dc7eba87385bb34d1d6e12437675a3e490e1044d67c9
+    name: jellyfin
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/jellyfin-0.1.2/jellyfin-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: latest
+    created: "2023-06-28T09:46:37.073363993Z"
+    dependencies:
+    - name: http-libchart
+      repository: https://niyoh120.github.io/helm-charts
+      version: 0.1.0
+    description: A jellyfin Helm chart for Kubernetes
+    digest: 5c0b9faac598e41630e23df4c78735427798e2a96b058e66c7453d22d96738ba
+    name: jellyfin
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/jellyfin-0.1.1/jellyfin-0.1.1.tgz
+    version: 0.1.1
+  media-system:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2023-07-02T16:12:56.760493061Z"
+    dependencies:
+    - name: jellyfin
+      repository: https://niyoh120.github.io/helm-charts
+      version: 0.1.2
+    description: A media-system Helm chart for Kubernetes
+    digest: a7225ddb3a5d11227659409e3e4357c27c78c3c68f04a2f0de01696496f4bc72
+    name: media-system
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/media-system-0.1.2/media-system-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: latest
+    created: "2023-06-29T09:42:57.183060834Z"
+    dependencies:
+    - name: jellyfin
+      repository: https://niyoh120.github.io/helm-charts
+      version: '>=0.0.0'
+    description: A media-system Helm chart for Kubernetes
+    digest: 8cba4d4bc21aa84570e046cddd780699b29fcf0c7e9d38e9c1d23a4c8fcb188f
+    name: media-system
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/media-system-0.1.1/media-system-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: latest
+    created: "2023-06-28T16:12:49.576643387Z"
+    dependencies:
+    - name: jellyfin
+      repository: https://niyoh120.github.io/helm-charts
+      version: '>=0.0.0'
+    description: A media-system Helm chart for Kubernetes
+    digest: 80573780d1bad88f84b623607923187ce5bccb8654c5d4064925dcd758895b4f
+    name: media-system
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/media-system-0.1.0/media-system-0.1.0.tgz
+    version: 0.1.0
+  qbittorrentee:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2023-07-02T15:15:16.031669393Z"
+    dependencies:
+    - name: http-libchart
+      repository: https://niyoh120.github.io/helm-charts
+      version: 0.1.0
+    description: A qbittorrentee Helm chart for Kubernetes
+    digest: a0f23e0c4fabf789f8275ff6958cb86b05da5cefa6b0fb9f7c9dc4572831f500
+    name: qbittorrentee
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/qbittorrentee-0.1.1/qbittorrentee-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: latest
+    created: "2023-06-28T09:46:37.262062409Z"
+    dependencies:
+    - name: http-libchart
+      repository: https://niyoh120.github.io/helm-charts
+      version: 0.1.0
+    description: A qbittorrentee Helm chart for Kubernetes
+    digest: 65820b264f021661661df7f1c9f62bd7f82557202e4f50f5ae2d0dcd92f4fb46
+    name: qbittorrentee
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/qbittorrentee-0.1.0/qbittorrentee-0.1.0.tgz
+    version: 0.1.0
+  tachidesk:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2023-06-27T12:44:28.672350859Z"
+    dependencies:
+    - name: http-libchart
+      repository: https://niyoh120.github.io/helm-charts
+      version: 0.1.0
+    description: A tachidesk Helm chart for Kubernetes
+    digest: c4fa06bdcd064b7ea432c698681cb4e5f240b88e3d1da774faabb2f2c22c0da7
+    name: tachidesk
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/tachidesk-0.1.0/tachidesk-0.1.0.tgz
+    version: 0.1.0
+  talebook:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2023-06-28T08:22:31.227027117Z"
+    dependencies:
+    - name: http-libchart
+      repository: https://niyoh120.github.io/helm-charts
+      version: 0.1.0
+    description: A talebook Helm chart for Kubernetes
+    digest: cf841f4a6a9fabdced7a3241634edf5e7b78409a37c4f43baf5c0108164532c6
+    name: talebook
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/talebook-0.1.1/talebook-0.1.1.tgz
+    version: 0.1.1
+  uptime-kuma:
+  - apiVersion: v2
+    appVersion: "1"
+    created: "2023-06-26T13:32:59.801039786Z"
+    dependencies:
+    - name: http-libchart
+      repository: https://niyoh120.github.io/helm-charts
+      version: 0.1.0
+    description: A Helm chart for Kubernetes
+    digest: 97e5737ef90257e9395c3a8a26cb3543cfa032b42c953175cdaed199487a1770
+    name: uptime-kuma
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/uptime-kuma-0.1.0/uptime-kuma-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-07-02T16:12:56.988606073Z"

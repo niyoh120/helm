@@ -43,10 +43,6 @@ spec:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
-            - name: srv-discovery
-              containerPort: 1900
-              hostPort: 1900
-              protocol: UDP
             - name: cli-discovery
               containerPort: 7359
               hostPort: 7359

@@ -1,1 +1,21 @@
-{{- include "http-libchart.deployment" . -}}
+{{- include "http-libchart.util.merge" (list . "qbittorrentee.deployment" "http-libchart.deployment" ) -}}
+
+{{- define "qbittorrentee.deployment" -}}
+spec:
+  template:
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.service.port }}
+              protocol: TCP
+            - name: bt-tcp
+              containerPort: 6881
+              hostPort: 6881
+              protocol: TCP
+            - name: bt-udp
+              containerPort: 6881
+              hostPort: 6881
+              protocol: UDP
+{{- end -}}

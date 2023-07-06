@@ -2,10 +2,6 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-aliToken: ""
-aliOpenToken: ""
-aliTempFolderID: ""
-
 replicaCount: 1
 
 image:
@@ -82,18 +78,15 @@ tolerations: []
 
 affinity: {}
 
+pvc:
+  name: alist-xiaoya-pvc
+  storageSize: 128Mi
+
 volumes:
-  - name: alist-xiaoya-secret-volume
-    secret:
-      secretName: alist-xiaoya-secret
+  - name: alist-xiaoya-storage
+    persistentVolumeClaim:
+      claimName: alist-xiaoya-pvc
 
 volumeMounts:
-  - name: alist-xiaoya-secret-volume
-    mountPath: /data/mytoken.txt
-    subPath: mytoken.txt
-  - name: alist-xiaoya-secret-volume
-    mountPath: /data/myopentoken.txt
-    subPath: myopentoken.txt
-  - name: alist-xiaoya-secret-volume
-    mountPath: /data/temp_transfer_folder_id.txt
-    subPath: temp_transfer_folder_id.txt
+  - name: alist-xiaoya-storage
+    mountPath: /data

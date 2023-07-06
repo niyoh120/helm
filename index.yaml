@@ -149,6 +149,16 @@ entries:
   http-libchart:
   - apiVersion: v2
     appVersion: 0.0.1
+    created: "2023-07-06T17:35:26.866238953Z"
+    description: A HTTP Helm chart library for Kubernetes
+    digest: 5365dbd9fe37e65317d96e52798e2798ba836c5f3c0670bd0b5eb40bbada3a13
+    name: http-libchart
+    type: library
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/http-libchart-0.1.1/http-libchart-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 0.0.1
     created: "2023-06-26T12:15:37.77529788Z"
     description: A HTTP Helm chart library for Kubernetes
     digest: f88744ffed0e2447181a1a962c832d33a56fd2f40b822b0a3e59f16a938bc1db
@@ -275,4 +285,4 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/uptime-kuma-0.1.0/uptime-kuma-0.1.0.tgz
     version: 0.1.0
-generated: "2023-07-06T14:32:19.733160776Z"
+generated: "2023-07-06T17:35:26.867112547Z"

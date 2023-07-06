@@ -1,0 +1,88 @@
+# Default values for filebrowser.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+RootPath: &RootPath /mnt
+
+replicaCount: 1
+
+image:
+  repository: filebrowser/filebrowser
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+  env:
+    - name: PUID
+      value: "0"
+    - name: PGID
+      value: "0"
+    - name: TZ
+      value: Asia/Shanghai
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: false
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext:
+  {}
+
+securityContext: {}
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: true
+  className: traefik
+  certManagerClusterIssuerName: ""
+  annotations: {}
+  hosts:
+    - host: fb.niyoh.top
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls:
+    - secretName: filebrowser-tls-secret
+      hosts:
+        - fb.niyoh.top
+
+resources: {}
+
+autoscaling:
+  enabled: false
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+pvc:
+  name: filebrowser-pvc
+  storageSize: 128Mi
+
+volumes:
+  - name: filebrowser-storage
+    persistentVolumeClaim:
+      claimName: filebrowser-pvc
+  - name: filebrowser-root
+    hostPath:
+      path: *RootPath
+
+volumeMounts:
+  - mountPath: /database
+    name: filebrowser-storage
+    subPath: database
+  - mountPath: /config
+    name: filebrowser-storage
+    subPath: config
+  - mountPath: /srv
+    name: filebrowser-root

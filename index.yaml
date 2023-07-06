@@ -18,6 +18,20 @@ entries:
   alist-xiaoya:
   - apiVersion: v2
     appVersion: latest
+    created: "2023-07-06T17:42:47.437258344Z"
+    dependencies:
+    - name: http-libchart
+      repository: https://niyoh120.github.io/helm-charts
+      version: 0.1.1
+    description: A alist-xiaoya Helm chart for Kubernetes
+    digest: 29f122b5c0171513a44d2f1baaa6f249e825af1eae337a10c3bc668c13f5e5c3
+    name: alist-xiaoya
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/alist-xiaoya-0.1.2/alist-xiaoya-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: latest
     created: "2023-07-06T13:15:32.270010909Z"
     dependencies:
     - name: http-libchart
@@ -285,4 +299,4 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/uptime-kuma-0.1.0/uptime-kuma-0.1.0.tgz
     version: 0.1.0
-generated: "2023-07-06T17:35:26.867112547Z"
+generated: "2023-07-06T17:42:47.437480446Z"

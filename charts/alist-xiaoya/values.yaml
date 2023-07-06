@@ -90,3 +90,6 @@ volumes:
 volumeMounts:
   - name: alist-xiaoya-storage
     mountPath: /data
+
+scheduledRestart:
+  schedule: "0 4 * * *"

@@ -1,0 +1,7 @@
+remoteWriteURL: "https://prometheus-prod-37-prod-ap-southeast-1.grafana.net/api/prom/push"
+promUsername: "1082780"
+promPassword: ""
+
+remoteLogsURL: "https://logs-prod-020.grafana.net/loki/api/v1/push"
+lokiUsername: "642013"
+lokiPassword: ""

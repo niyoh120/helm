@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "go-chatgpt-api.fullname" . }}
+  labels:
+    {{- include "go-chatgpt-api.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "go-chatgpt-api.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "go-chatgpt-api.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: go-chatgpt-api
+          image: linweiyuan/go-chatgpt-api:latest
+          env:
+            - name: TZ
+              value: Asia/Shanghai
+            - name: GO_CHATGPT_API_PROXY
+              value: socks5://localhost:65535
+            - name: GO_CHATGPT_API_PORT
+              value: "8081"
+          ports:
+            - containerPort: 8081
+              name: http
+        - name: chatgpt-proxy-server-warp
+          image: linweiyuan/chatgpt-proxy-server-warp:latest
+          env:
+            - name: LOG_LEVEL
+              value: "INFO"
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

@@ -62,7 +62,7 @@ spec:
         agent: grafana-agent
   metrics:
     externalLabels:
-      cluster: home-cluster
+      cluster: {{ .Values.clusterName | required "no clusterName" | quote }}
     instanceSelector:
       matchLabels:
         agent: grafana-agent
@@ -473,7 +473,7 @@ spec:
           key: username
           name: logs-secret
       externalLabels:
-        cluster: home-cluster
+        cluster: {{ .Values.clusterName | required "no clusterName" | quote }}
       url: {{ .Values.remoteLogsURL | required "no remoteLogsURL" | quote }}
   podLogsNamespaceSelector: {}
   podLogsSelector:

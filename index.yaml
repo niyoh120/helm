@@ -160,6 +160,36 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/fresh-rss-0.1.0/fresh-rss-0.1.0.tgz
     version: 0.1.0
+  go-chatgpt-api:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2023-07-19T06:28:09.312228058Z"
+    dependencies:
+    - name: http-libchart
+      repository: https://niyoh120.github.io/helm-charts
+      version: 0.1.1
+    description: A go chatgpt api Helm chart for Kubernetes
+    digest: 3b751bcf76be2dee227697e222f64782c1992fdd6d8644dd404594ba35615a14
+    name: go-chatgpt-api
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/go-chatgpt-api-0.1.0/go-chatgpt-api-0.1.0.tgz
+    version: 0.1.0
+  grafana-agent:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2023-07-19T06:28:09.457144951Z"
+    dependencies:
+    - name: grafana-agent-operator
+      repository: https://grafana.github.io/helm-charts
+      version: '*'
+    description: A grafana-agent Helm chart for Kubernetes
+    digest: 80d09a02fc16675f0fc684eefa64b9db7fa9efec2cc21e499c799f7ef7a0ab43
+    name: grafana-agent
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/grafana-agent-0.1.0/grafana-agent-0.1.0.tgz
+    version: 0.1.0
   http-libchart:
   - apiVersion: v2
     appVersion: 0.0.1
@@ -299,4 +329,4 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/uptime-kuma-0.1.0/uptime-kuma-0.1.0.tgz
     version: 0.1.0
-generated: "2023-07-06T17:42:47.437480446Z"
+generated: "2023-07-19T06:28:09.457169351Z"

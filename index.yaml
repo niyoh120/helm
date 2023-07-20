@@ -178,6 +178,20 @@ entries:
   grafana-agent:
   - apiVersion: v2
     appVersion: latest
+    created: "2023-07-20T08:34:55.383786326Z"
+    dependencies:
+    - name: grafana-agent-operator
+      repository: https://grafana.github.io/helm-charts
+      version: '*'
+    description: A grafana-agent Helm chart for Kubernetes
+    digest: d49415780134d4145cad9d65cbdf1e6012847c2d05b4101b8208b5472c324682
+    name: grafana-agent
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/grafana-agent-0.1.2/grafana-agent-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: latest
     created: "2023-07-19T08:41:37.711813925Z"
     dependencies:
     - name: grafana-agent-operator
@@ -343,4 +357,4 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/uptime-kuma-0.1.0/uptime-kuma-0.1.0.tgz
     version: 0.1.0
-generated: "2023-07-19T08:41:37.711848425Z"
+generated: "2023-07-20T08:34:55.38383063Z"

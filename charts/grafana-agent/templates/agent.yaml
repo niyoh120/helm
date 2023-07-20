@@ -81,6 +81,8 @@ type: Opaque
 stringData:
   password: {{ .Values.promPassword | required "no promPassword!" | quote }}
   username: {{ .Values.promUsername | required "no promUsername!" | quote }}
+
+{{- if .Values.nodeExport.enable }}
 ---
 apiVersion: monitoring.grafana.com/v1alpha1
 kind: Integration
@@ -117,6 +119,7 @@ spec:
     - hostPath:
         path: /proc
       name: procfs
+{{- end }}
 ---
 apiVersion: monitoring.grafana.com/v1alpha1
 kind: MetricsInstance

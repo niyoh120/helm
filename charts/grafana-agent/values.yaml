@@ -7,3 +7,6 @@ promPassword: ""
 remoteLogsURL: "https://logs-prod-020.grafana.net/loki/api/v1/push"
 lokiUsername: "642013"
 lokiPassword: ""
+
+nodeExport:
+  enable: false

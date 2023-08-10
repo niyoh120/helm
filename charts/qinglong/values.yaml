@@ -1,0 +1,64 @@
+# Default values for qinglong.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: whyour/qinglong
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+
+
+serviceAccount:
+  create: false
+
+podAnnotations: {}
+
+podSecurityContext: {}
+
+securityContext: {}
+
+service:
+  type: ClusterIP
+  port: 5700
+
+ingress:
+  enabled: true
+  className: "traefik"
+  certManagerClusterIssuerName: ""
+  annotations: {}
+  hosts:
+    - host: ql.niyoh.top
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: 
+   - secretName: qinglong-tls-secret
+     hosts:
+       - ql.niyoh.top
+
+resources: {}
+
+autoscaling:
+  enabled: false
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+pvc:
+  name: "qinglong-pvc"
+  storageSize: "256Mi"
+
+volumes:
+  - name: qinglong-storage
+    persistentVolumeClaim:
+      claimName: "qinglong-pvc"
+
+volumeMounts:
+  - name: qinglong-storage
+    mountPath: /ql/data

@@ -42,7 +42,8 @@ service:
 ingress:
   enabled: true
   className: "traefik"
-  certManagerClusterIssuerName: letsencrypt-staging
+  certManagerClusterIssuerName: ""
+  traekfikForceHTTPS: true
   annotations: {}
   hosts:
     - host: comic.niyoh.top

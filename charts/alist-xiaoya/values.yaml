@@ -35,6 +35,7 @@ ingress:
   enabled: true
   className: "traefik"
   certManagerClusterIssuerName: ""
+  traekfikForceHTTPS: true
   annotations: {}
   hosts:
     - host: xiaoya.niyoh.top

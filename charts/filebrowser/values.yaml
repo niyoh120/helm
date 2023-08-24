@@ -43,6 +43,7 @@ ingress:
   enabled: true
   className: traefik
   certManagerClusterIssuerName: ""
+  traekfikForceHTTPS: true
   annotations: {}
   hosts:
     - host: fb.niyoh.top

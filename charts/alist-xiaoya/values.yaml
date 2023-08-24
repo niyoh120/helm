@@ -5,6 +5,8 @@
 aliYunDriveToken: 
 aliYunDriveOpenToken: 
 aliYunDriveTempFolderID: 
+
+alistAuthToken:
 dockerAddress: http://xiaoya.niyoh.top
 
 replicaCount: 1

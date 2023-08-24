@@ -42,6 +42,7 @@ spec:
               echo {{ .Values.aliYunDriveOpenToken }} > /data/myopentoken.txt;
               echo {{ .Values.aliYunDriveTempFolderID }} > /data/temp_transfer_folder_id.txt;
               echo {{ .Values.dockerAddress }} > /data/docker_address.txt
+              echo {{ .Values.alistAuthToken }} > /data/alist_auth_token.txt
           volumeMounts:
             {{- toYaml .Values.volumeMounts | nindent 12 }}
       containers:

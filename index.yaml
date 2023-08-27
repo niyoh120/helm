@@ -408,6 +408,20 @@ entries:
   media-system:
   - apiVersion: v2
     appVersion: latest
+    created: "2023-08-27T11:29:34.090656085Z"
+    dependencies:
+    - name: jellyfin
+      repository: https://niyoh120.github.io/helm-charts
+      version: '>=0.0.0'
+    description: A media-system Helm chart for Kubernetes
+    digest: 74bff26c05701b98f6c9188d3977a4f5684fad30c47a155eb46dd73c3275418b
+    name: media-system
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/media-system-0.1.3/media-system-0.1.3.tgz
+    version: 0.1.3
+  - apiVersion: v2
+    appVersion: latest
     created: "2023-08-27T11:28:08.08991065Z"
     dependencies:
     - name: jellyfin
@@ -593,4 +607,4 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/uptime-kuma-0.1.0/uptime-kuma-0.1.0.tgz
     version: 0.1.0
-generated: "2023-08-27T11:28:08.089981551Z"
+generated: "2023-08-27T11:29:34.090729285Z"

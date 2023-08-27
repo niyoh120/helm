@@ -376,6 +376,21 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/http-libchart-0.1.0/http-libchart-0.1.0.tgz
     version: 0.1.0
+  immich:
+  - apiVersion: v2
+    appVersion: release
+    created: "2023-08-27T16:47:18.082679166Z"
+    dependencies:
+    - name: immich
+      repository: https://immich-app.github.io/immich-charts/
+      version: '*'
+    description: A immich Helm chart for Kubernetes
+    digest: 6f5b5611c9023bc58a567dd435373768dfeaa2587f516f6a089cfc2739a79769
+    name: immich
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/immich-0.1.0/immich-0.1.0.tgz
+    version: 0.1.0
   jellyfin:
   - apiVersion: v2
     appVersion: latest
@@ -607,4 +622,4 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/uptime-kuma-0.1.0/uptime-kuma-0.1.0.tgz
     version: 0.1.0
-generated: "2023-08-27T11:29:34.090729285Z"
+generated: "2023-08-27T16:47:18.20907632Z"

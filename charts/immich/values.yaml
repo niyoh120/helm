@@ -1,0 +1,57 @@
+libraryPath: /mnt/images
+
+pvc:
+  name: immich-pvc
+  storageSize: 10Gi
+
+immich:
+  env:
+    REDIS_HOSTNAME: ""
+    REDIS_PASSWORD: ""
+    DB_HOSTNAME: ""
+    DB_USERNAME: ""
+    DB_DATABASE_NAME: ""
+    # -- You should provide your own secret outside of this helm-chart and use `postgresql.global.postgresql.auth.existingSecret` to provide credentials to the postgresql instance
+    DB_PASSWORD: ""
+
+  image:
+    tag: release
+    pullPolicy: Always
+
+  immich:
+    persistence:
+      # Main data store for all photos shared between different components.
+      library:
+        # Automatically creating the library volume is not supported by this chart
+        # You have to specify an existing PVC to use
+        existingClaim: immich-pvc
+
+  machine-learning:
+    enabled: false
+
+  postgresql:
+    enabled: false
+
+  redis:
+    enabled: false
+
+  proxy:
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: traefik
+        annotations:
+          # # proxy-body-size is set to 0 to remove the body limit on file uploads
+          # nginx.ingress.kubernetes.io/proxy-body-size: "0"
+          traefik.ingress.kubernetes.io/router.middlewares: immich-http-redirect@kubernetescrd
+          cert-manager.io/cluster-issuer: letsencrypt-prod
+        hosts:
+          - host: immich.niyoh.top
+            paths:
+              - path: /
+        tls:
+          - secretName: immich-tls-secret
+            hosts:
+              - immich.niyoh.top
+          
+

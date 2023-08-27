@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ required "A valid .pvc.name required!" .Values.pvc.name }}
+spec:
+  accessModes:
+    - {{ .Values.pvc.accessModes | default "ReadWriteOnce" }}
+  storageClassName: hostpath
+  resources:
+    requests:
+      storage: {{ required "A valid .pvc.storageSize required!" .Values.pvc.storageSize }}
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: {{ required "A valid .pvc.name required!" .Values.pvc.name }}
+spec:
+  storageClassName: hostpath
+  capacity:
+    storage: {{ required "A valid .pvc.storageSize required!" .Values.pvc.storageSize }}
+  accessModes:
+    - {{ .Values.pvc.accessModes | default "ReadWriteOnce" }}
+  hostPath:
+    path: {{ required "A valid .pvc.libraryPath required!" .Values.libraryPath }}

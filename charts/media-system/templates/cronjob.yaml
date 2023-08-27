@@ -1,0 +1,45 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ include "media-system.fullname" . }}-mdc
+spec:
+  concurrencyPolicy: Forbid
+  schedule: "0 4 * * *"
+  jobTemplate:
+    spec:
+      backoffLimit: 1
+      template:
+        spec:
+          restartPolicy: Never
+          volumes:
+          - name: media-system-config
+            configMap:
+              name: {{ include "media-system.fullname" . }}
+          - name: media-system-storage
+            persistentVolumeClaim:
+              claimName: {{ .Values.pvc.name }}
+          - name: media-system-library
+            hostPath:
+              path: /mnt/media
+          - name: media-system-downloads
+            hostPath:
+              path: /mnt/downloads
+          containers:
+            - name: mdc
+              image: ghcr.io/vergilgao/mdc:latest
+              env:
+                - name: UID
+                  value: "0"
+                - name: GID
+                  value: "0"
+              volumeMounts:
+                - name: media-system-config
+                  mountPath: /config/mdc.ini
+                  subPath: mdc.config.ini
+                - mountPath: /config
+                  name: media-system-storage
+                  subPath: mdc
+                - mountPath: /data/media
+                  name: media-system-library
+                - mountPath: /data/downloads
+                  name: media-system-downloads

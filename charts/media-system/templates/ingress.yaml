@@ -35,6 +35,8 @@ spec:
         - jellyseerr.niyoh.top
         - jproxy.niyoh.top
         - chsub.niyoh.top
+        - nastool.niyoh.top
+        - jackett.niyoh.top
       secretName: media-system-tls-secret
   rules:
     - host: sonarr.niyoh.top
@@ -97,3 +99,24 @@ spec:
                 name: {{ $fullName }}
                 port:
                   name: chsub-http
+    - host: nastool.niyoh.top
+      http:
+        paths:
+          - pathType: ImplementationSpecific
+            path: /
+            backend:
+              service:
+                name: {{ $fullName }}
+                port:
+                  name: nastool-http
+    - host: jackett.niyoh.top
+      http:
+        paths:
+          - pathType: ImplementationSpecific
+            path: /
+            backend:
+              service:
+                name: {{ $fullName }}
+                port:
+                  name: jackett-http
+

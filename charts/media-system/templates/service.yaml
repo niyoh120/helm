@@ -15,10 +15,6 @@ spec:
     port: 7878
     targetPort: 7878
     protocol: TCP
-  - name: whisparr-http
-    port: 6969
-    targetPort: 6969
-    protocol: TCP
   - name: prowlarr-http
     port: 9696
     targetPort: 9696
@@ -34,6 +30,14 @@ spec:
   - name: chsub-http
     port: 19035
     targetPort: 19035
+    protocol: TCP
+  - name: nastool-http
+    port: 3000
+    targetPort: 3000
+    protocol: TCP
+  - name: jackett-http
+    port: 9117
+    targetPort: 9117
     protocol: TCP
   selector:
     {{- include "media-system.selectorLabels" . | nindent 4 }}

@@ -131,6 +131,45 @@ spec:
           securityContext:
             runAsUser: 0
             runAsGroup: 0
+        - name: nastools
+          image: linyuan0213/nas-tools:latest
+          env:
+            - name: PUID
+              value: "0"
+            - name: PGID
+              value: "0"
+            - name: "UMASK"
+              value: "022"
+            - name: TZ
+              value: Asia/Shanghai
+            - name: NASTOOL_AUTO_UPDATE
+              value: "false"
+            - name: NASTOOL_CN_UPDATE
+              value: "false"
+          ports:
+            - containerPort: 3000
+          volumeMounts:
+            - mountPath: /config
+              name: media-system-storage
+              subPath: nastools
+            - mountPath: /data
+              name: media-system-library
+            - mountPath: /downloads
+              name: media-system-downloads
+          securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+        - name: jackett
+          image: lscr.io/linuxserver/jackett:latest
+          env:
+            - name: TZ
+              value: Asia/Shanghai
+          ports:
+            - containerPort: 9117
+          volumeMounts:
+            - mountPath: /config
+              name: media-system-storage
+              subPath: jackett
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

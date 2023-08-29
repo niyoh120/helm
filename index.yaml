@@ -564,6 +564,21 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/qinglong-0.1.3/qinglong-0.1.3.tgz
     version: 0.1.3
+  reader:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2023-08-29T08:20:48.755707997Z"
+    dependencies:
+    - name: http-libchart
+      repository: https://niyoh120.github.io/helm-charts
+      version: 0.1.2
+    description: A reader Helm chart for Kubernetes
+    digest: 33e8a29b7325451dc1299a0ad279d81788542d9ca834449f82f18a3e2548d739
+    name: reader
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/reader-0.1.0/reader-0.1.0.tgz
+    version: 0.1.0
   tachidesk:
   - apiVersion: v2
     appVersion: latest
@@ -637,4 +652,4 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/uptime-kuma-0.1.0/uptime-kuma-0.1.0.tgz
     version: 0.1.0
-generated: "2023-08-28T14:20:49.662451361Z"
+generated: "2023-08-29T08:20:48.7557755Z"

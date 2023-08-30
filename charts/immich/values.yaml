@@ -16,7 +16,6 @@ immich:
 
   image:
     tag: release
-    pullPolicy: Always
 
   immich:
     persistence:
@@ -35,7 +34,22 @@ immich:
   redis:
     enabled: false
 
+  server:
+    image:
+      pullPolicy: Always
+
+  microservices:
+    image:
+      pullPolicy: Always
+
+  web:
+    image:
+      pullPolicy: Always
+
   proxy:
+    image:
+      pullPolicy: Always
+
     ingress:
       main:
         enabled: true
@@ -53,5 +67,3 @@ immich:
           - secretName: immich-tls-secret
             hosts:
               - immich.niyoh.top
-          
-

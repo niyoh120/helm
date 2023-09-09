@@ -146,6 +146,20 @@ entries:
   aria2:
   - apiVersion: v2
     appVersion: latest
+    created: "2023-09-09T17:07:31.356081832Z"
+    dependencies:
+    - name: http-libchart
+      repository: https://niyoh120.github.io/helm-charts
+      version: 0.1.2
+    description: A aria2 Helm chart for Kubernetes
+    digest: f41af952934c3f7cdc819e988d32478b01990e12c11aa064e0bd866dfcc707b6
+    name: aria2
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/aria2-0.1.4/aria2-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v2
+    appVersion: latest
     created: "2023-08-24T16:11:09.988999996Z"
     dependencies:
     - name: http-libchart
@@ -652,4 +666,4 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/uptime-kuma-0.1.0/uptime-kuma-0.1.0.tgz
     version: 0.1.0
-generated: "2023-08-29T08:20:48.7557755Z"
+generated: "2023-09-09T17:07:31.554442891Z"

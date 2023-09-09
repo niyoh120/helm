@@ -41,6 +41,10 @@ image:
   env:
     - name: TZ
       value: Asia/Shanghai
+    - name: PUID
+      value: "0"
+    - name: GUID
+      value: "0"
     - name: RPC_PORT
       value: "6800"
     - name: LISTEN_PORT

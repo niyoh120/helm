@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "frpc.fullname" . }}
+  labels:
+    {{- include "frpc.labels" . | nindent 4 }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      {{- include "frpc.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "frpc.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+        - name: frpc
+          image: snowdreamtech/frpc:0.51.3
+          imagePullPolicy: IfNotPresent
+          volumeMounts:
+            - mountPath: /etc/frp
+              name: config
+          env:
+            - name: TZ
+              value: Asia/Shanghai
+      restartPolicy: Always
+      volumes:
+        - name: config
+          configMap:
+            name: {{ include "frpc.fullname" . }}

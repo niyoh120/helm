@@ -1,0 +1,23 @@
+# Default values for frpc.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+frpcConfig: |-
+  [common]
+  server_addr = 127.0.0.1
+  server_port = 7000
+  token = ''
+  protocol = websocket
+  tls_enable = true
+
+  [qb-tcp]
+  type = tcp
+  local_ip = qbittorrentee.qbittorrentee.svc.cluster.local
+  local_port = 6881
+  remote_port = 6881
+
+  [qb-udp]
+  type = udp
+  local_ip = qbittorrentee.qbittorrentee.svc.cluster.local
+  local_port = 6881
+  remote_port = 6881

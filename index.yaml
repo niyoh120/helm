@@ -316,6 +316,17 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/fresh-rss-0.1.0/fresh-rss-0.1.0.tgz
     version: 0.1.0
+  frpc:
+  - apiVersion: v2
+    appVersion: 0.51.3
+    created: "2023-09-11T16:50:32.971436706Z"
+    description: A frpc Helm chart for Kubernetes
+    digest: 17bde7cf4b79a60adbb37580962cf82d3db8a130e8d56c0069e346d7f11e6ccc
+    name: frpc
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/frpc-0.1.0/frpc-0.1.0.tgz
+    version: 0.1.0
   go-chatgpt-api:
   - apiVersion: v2
     appVersion: latest
@@ -509,6 +520,20 @@ entries:
   qbittorrentee:
   - apiVersion: v2
     appVersion: latest
+    created: "2023-09-11T16:50:33.075292456Z"
+    dependencies:
+    - name: http-libchart
+      repository: https://niyoh120.github.io/helm-charts
+      version: 0.1.2
+    description: A qbittorrentee Helm chart for Kubernetes
+    digest: 1cc0907a049f52ac56b85fac39019ee88946afe4268099c9c71985173fc7fdbd
+    name: qbittorrentee
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/qbittorrentee-0.1.3/qbittorrentee-0.1.3.tgz
+    version: 0.1.3
+  - apiVersion: v2
+    appVersion: latest
     created: "2023-08-24T16:11:10.493119275Z"
     dependencies:
     - name: http-libchart
@@ -666,4 +691,4 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/uptime-kuma-0.1.0/uptime-kuma-0.1.0.tgz
     version: 0.1.0
-generated: "2023-09-09T17:07:31.554442891Z"
+generated: "2023-09-11T16:50:33.075385357Z"

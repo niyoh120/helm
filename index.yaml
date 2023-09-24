@@ -3,6 +3,20 @@ entries:
   alist:
   - apiVersion: v2
     appVersion: latest
+    created: "2023-09-24T17:35:10.029818824Z"
+    dependencies:
+    - name: http-libchart
+      repository: https://niyoh120.github.io/helm-charts
+      version: 0.1.2
+    description: A alist Helm chart for Kubernetes
+    digest: c8787afcceee9dadeeeadea3e3c53c9ddde25b7e8fe0e3e305e668ef7b668401
+    name: alist
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/alist-0.1.2/alist-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: latest
     created: "2023-08-24T16:11:09.706731093Z"
     dependencies:
     - name: http-libchart
@@ -431,6 +445,21 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/immich-0.1.0/immich-0.1.0.tgz
     version: 0.1.0
+  jackett:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2023-09-24T17:35:10.163579622Z"
+    dependencies:
+    - name: http-libchart
+      repository: https://niyoh120.github.io/helm-charts
+      version: 0.1.2
+    description: A jackett Helm chart for Kubernetes
+    digest: 9de1be12bd1a4390d4501864e7c730997e52fd7d6f25c538194132bfeca082de
+    name: jackett
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/jackett-0.1.0/jackett-0.1.0.tgz
+    version: 0.1.0
   jellyfin:
   - apiVersion: v2
     appVersion: latest
@@ -691,4 +720,4 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/uptime-kuma-0.1.0/uptime-kuma-0.1.0.tgz
     version: 0.1.0
-generated: "2023-09-11T16:50:33.075385357Z"
+generated: "2023-09-24T17:35:10.163644622Z"

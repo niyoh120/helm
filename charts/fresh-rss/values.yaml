@@ -26,6 +26,9 @@ serviceAccount:
 
 podAnnotations: {}
 
+podLabels:
+  riotkit.org/volume-syncing-controller: "true"
+
 podSecurityContext:
   {}
   # fsGroup: 2000
@@ -46,7 +49,7 @@ service:
 ingress:
   enabled: true
   className: traefik
-  certManagerClusterIssuerName: ""
+  certManagerClusterIssuerName: "letsencrypt-prod"
   traekfikForceHTTPS: true
   annotations: {}
   hosts:
@@ -101,3 +104,5 @@ volumeMounts:
   - mountPath: /var/www/FreshRSS/extensions
     name: fresh-rss-storage
     subPath: extensions
+
+remoteSyncConfig: {}

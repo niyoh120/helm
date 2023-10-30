@@ -1,0 +1,64 @@
+---
+apiVersion: riotkit.org/v1alpha1
+kind: PodFilesystemSync
+metadata:
+  name: {{ include "fresh-rss.fullname" . }}-data
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: {{ include "fresh-rss.name" . }}
+
+  localPath: /var/www/FreshRSS/data
+  remotePath: /fresh-rss/data
+
+  syncOptions:
+      # NOTICE: every next synchronization will be cancelled if previous one was not finished
+      method: "scheduler"  # or "fsnotify"
+      schedule: "@every 5m"
+
+    # Optional "RunAs"
+      permissions:
+          # Can be overridden by Pod annotation `riotkit.org/volume-user-id`
+          uid: "0"
+          # Can be overridden by Pod annotation `riotkit.org/volume-group-id`
+          gid: "0"
+
+      # Optional
+      cleanUp:
+          # Decides if files are synchronized or copied. Synchronization means that redundant files are deleted. 
+          # When in directory A you delete a file, then it gets deleted in directory B
+          remote: true
+          local: true
+
+          # Disables "security valves"
+          forceRemote: false    
+          forceLocal: false
+
+      # Optional
+      allowedDirections:
+          # Decides if a side-car container should be spawned to synchronize changes periodically TO REMOTE
+          toRemote: true
+          # Decides if an init container should be placed to restore files FROM REMOTE on startup
+          fromRemote: false
+
+      # Allows to decide on a case, when the directory is to be synchronized first time. 
+      # Should the initContainer be placed and restore from remote (it may be potentially empty if is new?), or should it be skipped first time?
+      # [!!!] This counts not for Pods, not for whole PodFilesystemSync but PER .spec.remotePath
+      restoreRemoteOnFirstRun: true
+  env:
+      # Best practice is to move sensitive information into `kind: Secret`
+      # and reference that secret in `envFromSecret`
+      # to keep your secret in GIT you can try e.g. SealedSecrets or ExternalSecrets
+      #REMOTE_ACCESS_KEY_ID: ...
+      #REMOTE_SECRET_ACCESS_KEY: ...
+  envFromSecrets:
+      - name: {{ include "fresh-rss.fullname" . }}-remote-sync-config
+
+  # Optional
+  # Will generate a key, store it in `kind: Secret` and setup End-To-End encryption
+  # if existing secret exists and is valid, then will be reused
+  #
+  # NOTICE: REMEMBER TO BACKUP THIS secret. End-To-End encryption means your data will be unreadable on the server
+  automaticEncryption:
+      enabled: false
+      secretName: {{ include "fresh-rss.fullname" . }}-remote-sync-key

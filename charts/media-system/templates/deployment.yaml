@@ -132,7 +132,7 @@ spec:
             runAsUser: 0
             runAsGroup: 0
         - name: nastools
-          image: linyuan0213/nas-tools:latest
+          image: hsuyelin/nas-tools:latest
           env:
             - name: PUID
               value: "0"

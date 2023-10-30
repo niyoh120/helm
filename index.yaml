@@ -304,6 +304,20 @@ entries:
   fresh-rss:
   - apiVersion: v2
     appVersion: latest
+    created: "2023-10-30T09:16:34.697816438Z"
+    dependencies:
+    - name: http-libchart
+      repository: https://niyoh120.github.io/helm-charts
+      version: 0.1.3
+    description: A fresh-rss Helm chart for Kubernetes
+    digest: 7a33496e0aeb4062c99ad73e149528c747bbaf7eba6052b0e37557460aea58f2
+    name: fresh-rss
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/fresh-rss-0.1.2/fresh-rss-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: latest
     created: "2023-08-24T16:11:10.254487903Z"
     dependencies:
     - name: http-libchart
@@ -443,6 +457,20 @@ entries:
   immich:
   - apiVersion: v2
     appVersion: release
+    created: "2023-10-30T09:16:34.951331326Z"
+    dependencies:
+    - name: immich
+      repository: https://immich-app.github.io/immich-charts/
+      version: '*'
+    description: A immich Helm chart for Kubernetes
+    digest: e93bcf3a760d284e57d1b826537359f8a42275805047deb5a5caff0c8042d7ce
+    name: immich
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/immich-0.1.1/immich-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: release
     created: "2023-08-27T16:47:18.082679166Z"
     dependencies:
     - name: immich
@@ -500,6 +528,20 @@ entries:
     - https://github.com/niyoh120/helm-charts/releases/download/jellyfin-0.1.1/jellyfin-0.1.1.tgz
     version: 0.1.1
   media-system:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2023-10-30T09:16:35.14820836Z"
+    dependencies:
+    - name: jellyfin
+      repository: https://niyoh120.github.io/helm-charts
+      version: '>=0.0.0'
+    description: A media-system Helm chart for Kubernetes
+    digest: 0009c76c37dfde10bc121a7dbd79bfe6f91da0fd1fede5bb52385bb2eca351a6
+    name: media-system
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/media-system-0.1.4/media-system-0.1.4.tgz
+    version: 0.1.4
   - apiVersion: v2
     appVersion: latest
     created: "2023-08-27T11:29:34.090656085Z"
@@ -730,4 +772,4 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/uptime-kuma-0.1.0/uptime-kuma-0.1.0.tgz
     version: 0.1.0
-generated: "2023-10-30T08:29:02.289388879Z"
+generated: "2023-10-30T09:16:35.14842726Z"

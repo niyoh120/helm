@@ -26,13 +26,31 @@ immich:
         existingClaim: immich-pvc
 
   machine-learning:
-    enabled: false
+    enabled: true
 
   postgresql:
     enabled: false
 
   redis:
     enabled: false
+  
+  typesense:
+    enabled: true
+    env:
+      TYPESENSE_DATA_DIR: /tsdata
+      TYPESENSE_API_KEY: immich
+    persistence:
+      tsdata:
+        # Enabling typesense persistence is recommended to avoid slow reindexing
+        enabled: true
+        accessMode: ReadWriteOnce
+        size: 1Gi
+        storageClass: local-path
+
+    image:
+      repository: typesense/typesense
+      tag: latest
+      pullPolicy: Always
 
   server:
     image:

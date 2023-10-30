@@ -304,6 +304,20 @@ entries:
   fresh-rss:
   - apiVersion: v2
     appVersion: latest
+    created: "2023-10-30T14:40:03.369684421Z"
+    dependencies:
+    - name: http-libchart
+      repository: https://niyoh120.github.io/helm-charts
+      version: 0.1.3
+    description: A fresh-rss Helm chart for Kubernetes
+    digest: 4122991a68f35de68673dc5c9e43955ada46b8f75df457d0ae1aa028563c682b
+    name: fresh-rss
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/fresh-rss-0.1.3/fresh-rss-0.1.3.tgz
+    version: 0.1.3
+  - apiVersion: v2
+    appVersion: latest
     created: "2023-10-30T09:16:34.697816438Z"
     dependencies:
     - name: http-libchart
@@ -772,4 +786,4 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/uptime-kuma-0.1.0/uptime-kuma-0.1.0.tgz
     version: 0.1.0
-generated: "2023-10-30T09:16:35.14842726Z"
+generated: "2023-10-30T14:40:03.369945322Z"

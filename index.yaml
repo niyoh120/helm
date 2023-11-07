@@ -46,6 +46,20 @@ entries:
   alist-tvbox:
   - apiVersion: v2
     appVersion: native
+    created: "2023-11-07T06:33:22.115803345Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts
+      version: 2.0.3
+    description: A alist-tvbox Helm chart for Kubernetes
+    digest: 15aa3a295b8b3edf5da6b4b8790292e233f1ef08389019a435d4ad73e4a82769
+    name: alist-tvbox
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/alist-tvbox-0.1.2/alist-tvbox-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: native
     created: "2023-08-26T07:11:21.590292152Z"
     dependencies:
     - name: http-libchart
@@ -814,4 +828,4 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/uptime-kuma-0.1.0/uptime-kuma-0.1.0.tgz
     version: 0.1.0
-generated: "2023-11-01T12:45:19.251325671Z"
+generated: "2023-11-07T06:33:22.293671588Z"

@@ -1,0 +1,61 @@
+{{- define "alist-tvbox.scheduledRestart" }}
+---
+# ServiceAccount
+kind: ServiceAccount
+apiVersion: v1
+metadata:
+  name: restart-deployment
+
+---
+# Role
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: restart-deployment
+rules:
+  - apiGroups: ["apps", "extensions"]
+    resources: ["deployments"]
+    resourceNames: ["alist-tvbox"]
+    verbs: ["get", "patch"]
+
+---
+# RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: restart-deployment
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: restart-deployment
+subjects:
+  - kind: ServiceAccount
+    name: restart-deployment
+    namespace: {{ .Release.Namespace }}
+
+---
+# Cronjob
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: restart-deployment
+spec:
+  concurrencyPolicy: Forbid
+  schedule: "{{ .Values.scheduledRestart.schedule }}"
+  jobTemplate:
+    spec:
+      backoffLimit: {{ .Values.scheduledRestart.backoffLimit | default 2 }}
+      activeDeadlineSeconds: {{ .Values.scheduledRestart.activeDeadlineSeconds | default 600 }}
+      template:
+        spec:
+          serviceAccountName: restart-deployment 
+          restartPolicy: Never
+          containers:
+            - name: kubectl
+              image: bitnami/kubectl
+              command:
+                - kubectl
+                - rollout
+                - restart
+                - deployment/alist-tvbox
+{{- end -}}

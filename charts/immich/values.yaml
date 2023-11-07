@@ -1,3 +1,6 @@
+# https://github.com/bjw-s/helm-charts/blob/main/charts/library/common/values.yaml
+# https://github.com/immich-app/immich-charts/blob/main/charts/immich/values.yaml
+
 libraryPath: /mnt/images
 
 pvc:
@@ -25,15 +28,35 @@ immich:
         # You have to specify an existing PVC to use
         existingClaim: immich-pvc
 
+  server:
+    podLabels:
+      riotkit.org/volume-syncing-controller: "true"
+    enabled: true
+    image:
+      repository: ghcr.io/immich-app/immich-server
+      pullPolicy: Always
+
   machine-learning:
     enabled: true
+    image:
+      repository: ghcr.io/immich-app/immich-machine-learning
+      pullPolicy: Always
+    env:
+      TRANSFORMERS_CACHE: /cache
+    persistence:
+      cache:
+        enabled: true
+        size: 10Gi
+        # Optional: Set this to pvc to avoid downloading the ML models every start.
+        accessMode: ReadWriteOnce
+        storageClass: local-path
 
   postgresql:
     enabled: false
 
   redis:
     enabled: false
-  
+
   typesense:
     enabled: true
     env:
@@ -49,11 +72,7 @@ immich:
 
     image:
       repository: typesense/typesense
-      tag: latest
-      pullPolicy: Always
-
-  server:
-    image:
+      tag: 0.24.1
       pullPolicy: Always
 
   microservices:

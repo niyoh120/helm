@@ -1,0 +1,136 @@
+# https://github.com/bjw-s/helm-charts/blob/main/charts/library/common/values.yaml
+
+{{- define "alist-tvbox.app.hardcodedValues" -}}
+
+global:
+  fullnameOverride: alist
+
+defaultPodOptions:
+  hostname: alist
+
+controllers:
+  main:
+    enabled: true
+    containers:
+      main:
+        image:
+          repository: xhofe/alist
+          tag: "v3.28.0"
+          pullPolicy: IfNotPresent
+        env:
+        - name: TZ
+          value: Asia/Shanghai
+        
+        probes:
+          # -- Liveness probe configuration
+          # @default -- See below
+          liveness:
+            # -- Enable the liveness probe
+            enabled: true
+            # -- Set this to `true` if you wish to specify your own livenessProbe
+            custom: false
+            # -- sets the probe type when not using a custom probe
+            # @default -- "TCP"
+            # -- The spec field contains the values for the default livenessProbe.
+            # If you selected `custom: true`, this field holds the definition of the livenessProbe.
+            # @default -- See below
+            # spec:
+            #   initialDelaySeconds: 300
+            #   periodSeconds: 10
+            #   timeoutSeconds: 1
+            #   failureThreshold: 3
+
+          # -- Redainess probe configuration
+          # @default -- See below
+          readiness:
+            # -- Enable the readiness probe
+            enabled: true
+            # -- Set this to `true` if you wish to specify your own readinessProbe
+            custom: false
+            # -- sets the probe type when not using a custom probe
+            # @default -- "TCP"
+            # type: TCP
+            # -- The spec field contains the values for the default readinessProbe.
+            # If you selected `custom: true`, this field holds the definition of the readinessProbe.
+            # @default -- See below
+            # spec:
+            #   initialDelaySeconds: 0
+            #   periodSeconds: 10
+            #   timeoutSeconds: 1
+            #   failureThreshold: 3
+
+service:
+  main:
+    enabled: true
+    primary: true
+    type: ClusterIP
+    ports:
+      http:
+        enabled: true
+        primary: true
+        port: 5244
+        protocol: HTTP
+
+persistence:
+  pvc:
+    enabled: true
+    type: persistentVolumeClaim
+    storageClass: local-path
+    accessMode: ReadWriteOnce
+    size: 128Mi
+    advancedMounts:
+      main:
+        main:
+          - path: /opt/alist/data
+            readOnly: false
+
+ingress:
+  main:
+    # -- Enables or disables the ingress
+    enabled: true
+
+    # -- Make this the primary ingress (used in probes, notes, etc...).
+    # If there is more than 1 ingress, make sure that only 1 ingress is marked as primary.
+    primary: true
+
+    # -- Provide additional annotations which may be required.
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod 
+
+    # -- Provide additional labels which may be required.
+    labels: {}
+
+    # -- Set the ingressClass that is used for this ingress.
+    className: "traefik"
+
+    ## Configure the hosts for the ingress
+    hosts:
+        # -- Host address. Helm template can be passed.
+      - host: alist.niyoh.top
+        ## Configure the paths for the host
+        paths:
+          - # -- Path.  Helm template can be passed.
+            path: /
+            pathType: Prefix
+            service:
+              # -- Overrides the service name reference for this path
+              # This can be an actual service name, or reference a service identifier
+              # from this values.yaml
+              name: main
+              # -- Overrides the service port number reference for this path
+              port: http
+
+    # -- Configure TLS for the ingress. Both secretName and hosts can process a Helm template.
+    tls: 
+     - secretName: alist-tls-secret
+       hosts:
+         - alist.niyoh.top
+
+{{- end }}
+
+{{ if .Values.app.enabled }}
+{{- $ctx := deepCopy . -}}
+{{- $_ := get .Values "app" | mergeOverwrite $ctx.Values -}}
+{{- $_ = include "alist-tvbox.app.hardcodedValues" . | fromYaml | merge $ctx.Values -}}
+{{- include "bjw-s.common.loader.all" $ctx }}
+{{ end }}

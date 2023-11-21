@@ -1,0 +1,6 @@
+app:
+  enabled: true
+
+config:
+  user: lx-music
+  password: lx-music

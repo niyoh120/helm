@@ -611,6 +611,21 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/jellyfin-0.1.1/jellyfin-0.1.1.tgz
     version: 0.1.1
+  lx-music-sync-server:
+  - apiVersion: v2
+    appVersion: v2.1.2
+    created: "2023-11-21T14:03:42.696942156Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts
+      version: 2.0.3
+    description: A lx-music-sync-server Helm chart for Kubernetes
+    digest: 545573c07d4e48bf5011de51821a1b58c7af1ae71e8a0b752838bac5e5a3911d
+    name: lx-music-sync-server
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/lx-music-sync-server-0.1.0/lx-music-sync-server-0.1.0.tgz
+    version: 0.1.0
   media-system:
   - apiVersion: v2
     appVersion: latest
@@ -856,4 +871,4 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/uptime-kuma-0.1.0/uptime-kuma-0.1.0.tgz
     version: 0.1.0
-generated: "2023-11-21T11:12:25.078227824Z"
+generated: "2023-11-21T14:03:42.697010433Z"

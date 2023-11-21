@@ -2,6 +2,20 @@ apiVersion: v1
 entries:
   alist:
   - apiVersion: v2
+    appVersion: v3.28.0
+    created: "2023-11-21T11:12:25.078145439Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts
+      version: 2.0.3
+    description: A alist Helm chart for Kubernetes
+    digest: 1ae85454c77c218156b298064fe380fe71bd3504ff567ea339446a1dec12693a
+    name: alist
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/alist-0.1.3/alist-0.1.3.tgz
+    version: 0.1.3
+  - apiVersion: v2
     appVersion: latest
     created: "2023-09-24T17:35:10.029818824Z"
     dependencies:
@@ -842,4 +856,4 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/uptime-kuma-0.1.0/uptime-kuma-0.1.0.tgz
     version: 0.1.0
-generated: "2023-11-07T07:16:15.262274932Z"
+generated: "2023-11-21T11:12:25.078227824Z"

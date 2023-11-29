@@ -79,8 +79,10 @@ persistence:
         main:
           - path: /var/www/FreshRSS/data
             subPath: data
+            readOnly: false
           - path: /var/www/FreshRSS/extensions
             subPath: extensions
+            readOnly: false
 
 ingress:
   main:

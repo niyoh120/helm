@@ -259,6 +259,20 @@ entries:
   calibre-web:
   - apiVersion: v2
     appVersion: latest
+    created: "2023-11-30T13:47:49.000917023Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts
+      version: 2.0.3
+    description: A calibre-web Helm chart for Kubernetes
+    digest: cc02cd57692ec8eef471da59328bf76149dc859f112ef84a2539cfd2962f0390
+    name: calibre-web
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/calibre-web-0.1.2/calibre-web-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: latest
     created: "2023-06-27T14:07:13.576703276Z"
     dependencies:
     - name: http-libchart
@@ -330,6 +344,20 @@ entries:
     - https://github.com/niyoh120/helm-charts/releases/download/filebrowser-0.1.0/filebrowser-0.1.0.tgz
     version: 0.1.0
   fresh-rss:
+  - apiVersion: v2
+    appVersion: 1.22.1
+    created: "2023-11-30T13:47:49.139787061Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts
+      version: 2.0.3
+    description: A fresh-rss Helm chart for Kubernetes
+    digest: 82ca626ea48106c67dcfc2552c415f4921bb994601df0eaf650f5bd548a0c75d
+    name: fresh-rss
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/fresh-rss-0.1.7/fresh-rss-0.1.7.tgz
+    version: 0.1.7
   - apiVersion: v2
     appVersion: 1.22.1
     created: "2023-11-22T08:42:59.819671866Z"
@@ -885,4 +913,4 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/uptime-kuma-0.1.0/uptime-kuma-0.1.0.tgz
     version: 0.1.0
-generated: "2023-11-22T08:42:59.819750854Z"
+generated: "2023-11-30T13:47:49.140201271Z"

@@ -71,7 +71,7 @@ persistence:
   pvc:
     enabled: true
     type: persistentVolumeClaim
-    storageClass: csi-r2
+    storageClass: local-path
     accessMode: ReadWriteOnce
     size: 128Mi
     advancedMounts:

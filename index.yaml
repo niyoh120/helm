@@ -753,6 +753,21 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/media-system-0.1.0/media-system-0.1.0.tgz
     version: 0.1.0
+  pandora-next:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2023-12-22T07:33:49.335885848Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts
+      version: 2.0.3
+    description: A pandora-next Helm chart for Kubernetes
+    digest: 3cd386828b4f1b2ad9ceaf92218f2947bf713f13c4820f2608875ff91fb4ec28
+    name: pandora-next
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/pandora-next-0.1.0/pandora-next-0.1.0.tgz
+    version: 0.1.0
   qbittorrentee:
   - apiVersion: v2
     appVersion: latest
@@ -927,4 +942,4 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/uptime-kuma-0.1.0/uptime-kuma-0.1.0.tgz
     version: 0.1.0
-generated: "2023-12-05T12:55:11.566217735Z"
+generated: "2023-12-22T07:33:49.336004168Z"

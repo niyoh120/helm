@@ -299,6 +299,21 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/calibre-web-0.1.0/calibre-web-0.1.0.tgz
     version: 0.1.0
+  coze-discord-proxy:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2024-02-15T12:25:08.882874282Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts
+      version: 2.0.3
+    description: A coze-discord-proxy Helm chart for Kubernetes
+    digest: f8c38d8f277798c097b52b59d0ac72a62181869a3f9f4d7978d028bdc371ff6a
+    name: coze-discord-proxy
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/coze-discord-proxy-0.1.0/coze-discord-proxy-0.1.0.tgz
+    version: 0.1.0
   douban-api-rs:
   - apiVersion: v2
     appVersion: latest
@@ -957,4 +972,4 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/uptime-kuma-0.1.0/uptime-kuma-0.1.0.tgz
     version: 0.1.0
-generated: "2024-02-05T09:58:06.034107977Z"
+generated: "2024-02-15T12:25:08.882997641Z"

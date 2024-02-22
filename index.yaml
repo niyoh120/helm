@@ -302,6 +302,20 @@ entries:
   coze-discord-proxy:
   - apiVersion: v2
     appVersion: latest
+    created: "2024-02-22T11:31:59.85543299Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts
+      version: 2.0.3
+    description: A coze-discord-proxy Helm chart for Kubernetes
+    digest: 31cbc4363429aada0ee42668f41d47527cc4493bc95049951cf9935b9d49e63c
+    name: coze-discord-proxy
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/coze-discord-proxy-0.1.1/coze-discord-proxy-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: latest
     created: "2024-02-15T12:25:08.882874282Z"
     dependencies:
     - name: common
@@ -972,4 +986,4 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/uptime-kuma-0.1.0/uptime-kuma-0.1.0.tgz
     version: 0.1.0
-generated: "2024-02-15T12:25:08.882997641Z"
+generated: "2024-02-22T11:31:59.855542003Z"

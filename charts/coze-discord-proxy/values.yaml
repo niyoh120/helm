@@ -12,3 +12,5 @@ app:
             COZE_BOT_ID: "123456"
             CHANNEL_ID: "123456"
             PROXY_SECRET: sk-xxxx
+            USER_ID: 1099*********055  # 必须修改为我们discord用户的ID
+            USER_AUTHORIZATION: MTA5OTg5N************uIfytxUgJfmaXUBHVI  # 必须修改为我们discord用户的授权密钥

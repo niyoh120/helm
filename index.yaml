@@ -2,6 +2,20 @@ apiVersion: v1
 entries:
   alist:
   - apiVersion: v2
+    appVersion: latest
+    created: "2024-03-11T14:43:38.092676557Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts
+      version: 2.0.3
+    description: A alist Helm chart for Kubernetes
+    digest: 094beab16fc5beb0d30028a32e6a93fbb62697a46583a3da140208e06d4ecafb
+    name: alist
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/alist-0.1.4/alist-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v2
     appVersion: v3.28.0
     created: "2023-11-21T11:12:25.078145439Z"
     dependencies:
@@ -1000,4 +1014,19 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/uptime-kuma-0.1.0/uptime-kuma-0.1.0.tgz
     version: 0.1.0
-generated: "2024-02-23T11:03:10.062409028Z"
+  wewe-rss:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2024-03-11T14:43:38.238990691Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts
+      version: 2.0.3
+    description: A wewe-rss Helm chart for Kubernetes
+    digest: f99fbb3ddd9f8addabbd0293503742ade0cf2a4940849dcf061d14ed5239ee49
+    name: wewe-rss
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/wewe-rss-0.1.0/wewe-rss-0.1.0.tgz
+    version: 0.1.0
+generated: "2024-03-11T14:43:38.239114111Z"

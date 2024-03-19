@@ -811,6 +811,21 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/metatube-server-0.1.0/metatube-server-0.1.0.tgz
     version: 0.1.0
+  one-api-openai:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2024-03-19T12:36:35.541109701Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts
+      version: 2.0.3
+    description: A one-api-openai Helm chart for Kubernetes
+    digest: dbc387c98ad878d0447f2e803c5a73fb5db218effaaa53ded1b5c84dbdeb268d
+    name: one-api-openai
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/one-api-openai-0.1.0/one-api-openai-0.1.0.tgz
+    version: 0.1.0
   pandora-next:
   - apiVersion: v2
     appVersion: latest
@@ -1029,4 +1044,4 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/wewe-rss-0.1.0/wewe-rss-0.1.0.tgz
     version: 0.1.0
-generated: "2024-03-11T14:43:38.239114111Z"
+generated: "2024-03-19T12:36:35.541234173Z"

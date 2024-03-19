@@ -1,0 +1,10 @@
+app:
+  enabled: true
+
+  controllers:
+    main:
+      containers:
+        main:
+          env:
+            TZ: TZ=Asia/Shanghai
+            

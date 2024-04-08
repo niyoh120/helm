@@ -313,6 +313,21 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/calibre-web-0.1.0/calibre-web-0.1.0.tgz
     version: 0.1.0
+  chatgpt-free-api:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2024-04-08T15:06:14.556136309Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts
+      version: 2.0.3
+    description: A chatgpt-free-api Helm chart for Kubernetes
+    digest: 8d19574048fc4b0f5eb6f349780a62c760d6b9d93c0e69a633cc8775c0f7707c
+    name: chatgpt-free-api
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/chatgpt-free-api-0.1.0/chatgpt-free-api-0.1.0.tgz
+    version: 0.1.0
   coze-discord-proxy:
   - apiVersion: v2
     appVersion: latest
@@ -1074,4 +1089,4 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/wewe-rss-0.1.0/wewe-rss-0.1.0.tgz
     version: 0.1.0
-generated: "2024-04-08T14:08:52.573562665Z"
+generated: "2024-04-08T15:06:14.556254178Z"

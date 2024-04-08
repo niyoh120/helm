@@ -1,0 +1,6 @@
+app:
+  enabled: true
+
+ingress:
+  main:
+    enabled: true

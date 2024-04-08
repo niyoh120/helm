@@ -1,0 +1,13 @@
+app:
+  enabled: true
+
+controllers:
+  main:
+    containers:
+      main:
+        env:
+          TZ: Asia/Shanghai
+
+ingress:
+  main:
+    enabled: true

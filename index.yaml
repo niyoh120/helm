@@ -710,6 +710,21 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/jellyfin-0.1.1/jellyfin-0.1.1.tgz
     version: 0.1.1
+  kimi-free-api:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2024-04-08T14:08:52.416102766Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts
+      version: 2.0.3
+    description: A kimi-free-api Helm chart for Kubernetes
+    digest: 84e189c83ed716f92e665e0da17c9e5ec9e9f9d098893499a68e6b59f2416fbb
+    name: kimi-free-api
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/kimi-free-api-0.1.0/kimi-free-api-0.1.0.tgz
+    version: 0.1.0
   lx-music-sync-server:
   - apiVersion: v2
     appVersion: v2.1.2
@@ -927,6 +942,21 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/qinglong-0.1.3/qinglong-0.1.3.tgz
     version: 0.1.3
+  qwen-free-api:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2024-04-08T14:08:52.573411933Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts
+      version: 2.0.3
+    description: A qwen-free-api Helm chart for Kubernetes
+    digest: 9289f99d486c8654ecdcef220a465eccbeb19a12dc58f1e14254b6a32512ba9e
+    name: qwen-free-api
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/qwen-free-api-0.1.0/qwen-free-api-0.1.0.tgz
+    version: 0.1.0
   reader:
   - apiVersion: v2
     appVersion: latest
@@ -1044,4 +1074,4 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/wewe-rss-0.1.0/wewe-rss-0.1.0.tgz
     version: 0.1.0
-generated: "2024-03-19T12:36:35.541234173Z"
+generated: "2024-04-08T14:08:52.573562665Z"

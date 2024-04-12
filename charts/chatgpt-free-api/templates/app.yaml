@@ -17,6 +17,13 @@ controllers:
           repository: pawanosman/chatgpt
           tag: latest
           pullPolicy: Always
+
+        env:
+          PROXY: true
+          PROXY_PROTOCOL: http
+          PROXY_HOST: localhost
+          PROXY_PORT: 8080
+            
         probes:
           # -- Liveness probe configuration
           # @default -- See below
@@ -49,6 +56,63 @@ controllers:
             #   periodSeconds: 10
             #   timeoutSeconds: 1
             #   failureThreshold: 3
+      proxy:
+        image:
+          repository: ghcr.io/sagernet/sing-box
+          tag: latest
+          pullPolicy: Always
+        args: ["-D", "/var/lib/sing-box", "-C", "/etc/sing-box/", "run"]
+        probes:
+          # -- Liveness probe configuration
+          # @default -- See below
+          liveness:
+            # -- Enable the liveness probe
+            enabled: false
+            # -- Set this to `true` if you wish to specify your own livenessProbe
+            custom: false
+            # -- sets the probe type when not using a custom probe
+            # @default -- "TCP"
+            # -- The spec field contains the values for the default livenessProbe.
+            # If you selected `custom: true`, this field holds the definition of the livenessProbe.
+            # @default -- See below
+
+          # -- Redainess probe configuration
+          # @default -- See below
+          readiness:
+            # -- Enable the readiness probe
+            enabled: false
+            # -- Set this to `true` if you wish to specify your own readinessProbe
+            custom: false
+            # -- sets the probe type when not using a custom probe
+            # @default -- "TCP"
+            # type: TCP
+            # -- The spec field contains the values for the default readinessProbe.
+            # If you selected `custom: true`, this field holds the definition of the readinessProbe.
+            # @default -- See below
+            # spec:
+            #   initialDelaySeconds: 0
+            #   periodSeconds: 10
+            #   timeoutSeconds: 1
+            #   failureThreshold: 3
+            #
+configMaps:
+  proxy-config:
+    # -- Enables or disables the configMap
+    enabled: true
+    data:
+      config.json: {{ .Values.proxyConfig }}
+
+persistence:
+  proxy-config:
+    enabled: true
+    type: configMap
+    name: chatgpt-free-api-proxy-config
+    advancedMounts:
+      main:
+        proxy:
+          - path: /etc/sing-box/config.json
+            readOnly: true
+            subPath: config.json
 
 service:
   main:

@@ -316,6 +316,20 @@ entries:
   chatgpt-free-api:
   - apiVersion: v2
     appVersion: latest
+    created: "2024-04-12T14:04:05.976108388Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts
+      version: 2.0.3
+    description: A chatgpt-free-api Helm chart for Kubernetes
+    digest: a0b6fc3628c9db28f673cdec163d450d2b17df5d6e8547c27698ae325d34e5fd
+    name: chatgpt-free-api
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/chatgpt-free-api-0.1.1/chatgpt-free-api-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: latest
     created: "2024-04-08T15:06:14.556136309Z"
     dependencies:
     - name: common
@@ -329,6 +343,20 @@ entries:
     - https://github.com/niyoh120/helm-charts/releases/download/chatgpt-free-api-0.1.0/chatgpt-free-api-0.1.0.tgz
     version: 0.1.0
   coze-discord-proxy:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2024-04-12T14:04:06.16323809Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts
+      version: 2.0.3
+    description: A coze-discord-proxy Helm chart for Kubernetes
+    digest: bcc455e95465b57e0f8f4619042dc821b80d6359dddf813a4c85dde2f245c7df
+    name: coze-discord-proxy
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/coze-discord-proxy-0.1.2/coze-discord-proxy-0.1.2.tgz
+    version: 0.1.2
   - apiVersion: v2
     appVersion: latest
     created: "2024-02-22T11:31:59.85543299Z"
@@ -1077,6 +1105,20 @@ entries:
   wewe-rss:
   - apiVersion: v2
     appVersion: latest
+    created: "2024-04-12T14:04:06.333978457Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts
+      version: 2.0.3
+    description: A wewe-rss Helm chart for Kubernetes
+    digest: de745f34d1402239b04cde5e22d188bd1482d6ea3722b9248f1340270ddd0176
+    name: wewe-rss
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/wewe-rss-0.1.1/wewe-rss-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: latest
     created: "2024-03-11T14:43:38.238990691Z"
     dependencies:
     - name: common
@@ -1089,4 +1131,4 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/wewe-rss-0.1.0/wewe-rss-0.1.0.tgz
     version: 0.1.0
-generated: "2024-04-08T15:06:14.556254178Z"
+generated: "2024-04-12T14:04:06.334075479Z"

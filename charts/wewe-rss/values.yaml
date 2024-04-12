@@ -1,11 +1,20 @@
 app:
   enabled: true
 
-  controllers:
-    main:
-      containers:
-        main:
-          env:
-            DATABASE_TYPE: sqlite
-            FEED_MODE: fulltext
-            AUTH_CODE: WEWERSS
+controllers:
+  main:
+    containers:
+      main:
+        env:
+          DATABASE_TYPE: sqlite
+          FEED_MODE: fulltext
+          AUTH_CODE: WEWERSS
+
+persistence: 
+  pvc:
+    enabled: true
+
+ingress:
+  main:
+    enabled: true
+

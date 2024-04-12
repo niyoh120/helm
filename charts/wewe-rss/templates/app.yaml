@@ -14,7 +14,7 @@ controllers:
     containers:
       main:
         image:
-          repository: cooderl/wewe-rss-sqlite
+          repository: cooderl/wewe-rss
           tag: latest
           pullPolicy: Always
         probes:
@@ -64,7 +64,6 @@ service:
 
 persistence:
   pvc:
-    enabled: true
     type: persistentVolumeClaim
     storageClass: local-path
     accessMode: ReadWriteOnce
@@ -79,7 +78,7 @@ persistence:
 ingress:
   main:
     # -- Enables or disables the ingress
-    enabled: true
+    # enabled: false
 
     # -- Make this the primary ingress (used in probes, notes, etc...).
     # If there is more than 1 ingress, make sure that only 1 ingress is marked as primary.

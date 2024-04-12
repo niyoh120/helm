@@ -869,6 +869,21 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/metatube-server-0.1.0/metatube-server-0.1.0.tgz
     version: 0.1.0
+  miniflux:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2024-04-12T18:59:20.470880243Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts
+      version: 2.0.3
+    description: A miniflux Helm chart for Kubernetes
+    digest: a1c69dcda751024493f94ffa47485fbc45d22c2fd6fca34fbfd5b6d0e0692262
+    name: miniflux
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/miniflux-0.1.0/miniflux-0.1.0.tgz
+    version: 0.1.0
   one-api-openai:
   - apiVersion: v2
     appVersion: latest
@@ -1131,4 +1146,4 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/wewe-rss-0.1.0/wewe-rss-0.1.0.tgz
     version: 0.1.0
-generated: "2024-04-12T14:04:06.334075479Z"
+generated: "2024-04-12T18:59:20.635984893Z"

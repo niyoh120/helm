@@ -1,0 +1,40 @@
+app:
+  enabled: true
+
+controllers:
+  main:
+    containers:
+      main:
+        env:
+          TZ: Asia/Shanghai
+          BASE_URL: https://miniflux.niyoh.top/
+          LOG_DATE_TIME: 1
+          DATABASE_URL: postgres://miniflux:secret@db/miniflux?sslmode=disable
+          RUN_MIGRATIONS: 1
+          CREATE_ADMIN: 1
+          ADMIN_USERNAME: admin
+          ADMIN_PASSWORD: test123
+
+ingress:
+  main:
+    enabled: true
+
+    # -- Set the ingressClass that is used for this ingress.
+    className: "traefik"
+
+    ## Configure the hosts for the ingress
+    hosts:
+        # -- Host address. Helm template can be passed.
+      - host: miniflux.niyoh.top
+        ## Configure the paths for the host
+        paths:
+          - # -- Path.  Helm template can be passed.
+            path: /
+            pathType: Prefix
+            service:
+              # -- Overrides the service name reference for this path
+              # This can be an actual service name, or reference a service identifier
+              # from this values.yaml
+              name: main
+              # -- Overrides the service port number reference for this path
+              port: http

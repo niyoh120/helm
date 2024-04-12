@@ -62,20 +62,6 @@ service:
         port: 7077
         protocol: HTTP
 
-persistence:
-  pvc:
-    enabled: true
-    type: persistentVolumeClaim
-    storageClass: local-path
-    accessMode: ReadWriteOnce
-    size: 128Mi
-    advancedMounts:
-      main:
-        main:
-          - path: /app/coze-discord-proxy/data
-            subPath: data
-            readOnly: false
-
 ingress:
   main:
     # -- Enables or disables the ingress

@@ -1,16 +1,16 @@
 app:
   enabled: true
 
-  controllers:
-    main:
-      containers:
-        main:
-          env:
-            TZ: Asia/Shanghai
-            BOT_TOKEN: bot-token
-            GUILD_ID: "123456"
-            COZE_BOT_ID: "123456"
-            CHANNEL_ID: "123456"
-            PROXY_SECRET: sk-xxxx
-            USER_ID: 1099*********055  # 必须修改为我们discord用户的ID
-            USER_AUTHORIZATION: MTA5OTg5N************uIfytxUgJfmaXUBHVI  # 必须修改为我们discord用户的授权密钥
+controllers:
+  main:
+    containers:
+      main:
+        # https://github.com/deanxv/coze-discord-proxy
+        env:
+          TZ: Asia/Shanghai
+          BOT_TOKEN: bot-token
+          GUILD_ID: "123456"
+          COZE_BOT_ID: "123456"
+          CHANNEL_ID: "123456"
+          PROXY_SECRET: sk-xxxx
+          USER_AUTHORIZATION: MTA5OTg5N************uIfytxUgJfmaXUBHVI  # 必须修改为我们discord用户的授权密钥

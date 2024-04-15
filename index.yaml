@@ -783,6 +783,21 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/lx-music-sync-server-0.1.0/lx-music-sync-server-0.1.0.tgz
     version: 0.1.0
+  lx-source:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2024-04-15T16:41:31.215771472Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts
+      version: 2.0.3
+    description: A lx-source Helm chart for Kubernetes
+    digest: 384d6e0e99198d71966618b078c426bdfd795b6dc5d34cd13a3eedfa428a822a
+    name: lx-source
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/lx-source-0.1.0/lx-source-0.1.0.tgz
+    version: 0.1.0
   media-system:
   - apiVersion: v2
     appVersion: latest
@@ -1146,4 +1161,4 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/wewe-rss-0.1.0/wewe-rss-0.1.0.tgz
     version: 0.1.0
-generated: "2024-04-12T18:59:20.635984893Z"
+generated: "2024-04-15T16:41:31.21588887Z"

@@ -1045,6 +1045,21 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/reader-0.1.0/reader-0.1.0.tgz
     version: 0.1.0
+  singbox:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2024-06-28T01:15:27.116463108Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts
+      version: 2.0.3
+    description: A singbox Helm chart for Kubernetes
+    digest: 1fa98ae9129faa99bc9d653991b54cc64438137ef062c773564d898a192891d7
+    name: singbox
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/singbox-0.1.0/singbox-0.1.0.tgz
+    version: 0.1.0
   tachidesk:
   - apiVersion: v2
     appVersion: preview
@@ -1161,4 +1176,4 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/wewe-rss-0.1.0/wewe-rss-0.1.0.tgz
     version: 0.1.0
-generated: "2024-04-15T16:41:31.21588887Z"
+generated: "2024-06-28T01:15:27.116575347Z"

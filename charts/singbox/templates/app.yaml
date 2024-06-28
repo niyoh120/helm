@@ -1,0 +1,94 @@
+# https://github.com/bjw-s/helm-charts/blob/main/charts/library/common/values.yaml
+
+{{- define "singbox.app.hardcodedValues" -}}
+
+global:
+  fullnameOverride: singbox
+
+defaultPodOptions:
+  hostname: singbox
+
+controllers:
+  main:
+    enabled: true
+    containers:
+      main:
+        image:
+          repository: ghcr.io/sagernet/sing-box
+          tag: latest
+          pullPolicy: Always
+        args: ["-D", "/var/lib/sing-box", "-C", "/etc/sing-box/", "run"]
+        probes:
+          # -- Liveness probe configuration
+          # @default -- See below
+          liveness:
+            # -- Enable the liveness probe
+            enabled: true
+            # -- Set this to `true` if you wish to specify your own livenessProbe
+            custom: false
+            # -- sets the probe type when not using a custom probe
+            # @default -- "TCP"
+            # -- The spec field contains the values for the default livenessProbe.
+            # If you selected `custom: true`, this field holds the definition of the livenessProbe.
+            # @default -- See below
+
+          # -- Redainess probe configuration
+          # @default -- See below
+          readiness:
+            # -- Enable the readiness probe
+            enabled: true
+            # -- Set this to `true` if you wish to specify your own readinessProbe
+            custom: false
+            # -- sets the probe type when not using a custom probe
+            # @default -- "TCP"
+            # type: TCP
+            # -- The spec field contains the values for the default readinessProbe.
+            # If you selected `custom: true`, this field holds the definition of the readinessProbe.
+            # @default -- See below
+            # spec:
+            #   initialDelaySeconds: 0
+            #   periodSeconds: 10
+            #   timeoutSeconds: 1
+            #   failureThreshold: 3
+            #   
+service:
+  main:
+    enabled: true
+    primary: true
+    type: ClusterIP
+    ports:
+      http:
+        enabled: true
+        primary: true
+        port: 8080
+        protocol: TCP
+
+configMaps:
+  config:
+    # -- Enables or disables the configMap
+    enabled: true
+    data:
+      config.json: {{ .Values.proxyConfig }}
+
+  
+persistence:
+  config:
+    enabled: true
+    type: configMap
+    name: singbox-config
+    advancedMounts:
+      main:
+        main:
+          - path: /etc/sing-box/config.json
+            readOnly: true
+            subPath: config.json
+
+
+{{- end }}
+
+{{ if .Values.app.enabled }}
+{{- $ctx := deepCopy . -}}
+{{- $_ := get .Values "app" | mergeOverwrite $ctx.Values -}}
+{{- $_ = include "singbox.app.hardcodedValues" . | fromYaml | merge $ctx.Values -}}
+{{- include "bjw-s.common.loader.all" $ctx }}
+{{ end }}

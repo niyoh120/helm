@@ -1,0 +1,88 @@
+# https://github.com/bjw-s/helm-charts/blob/main/charts/library/common/values.yaml
+
+{{- define "librechat.app.hardcodedValues" -}}
+
+global:
+  fullnameOverride: librechat
+
+defaultPodOptions:
+  hostname: librechat
+
+controllers:
+  main:
+    enabled: true
+    containers:
+      main:
+        image:
+          repository: ghcr.io/danny-avila/librechat-dev-api
+          tag: latest
+          pullPolicy: Always
+        envFrom:
+          - secretRef:
+             name: {{ .Release.Name }}-env
+        probes:
+          # -- Liveness probe configuration
+          # @default -- See below
+          liveness:
+            # -- Enable the liveness probe
+            enabled: true
+            # -- Set this to `true` if you wish to specify your own livenessProbe
+            custom: false
+            # -- sets the probe type when not using a custom probe
+            # @default -- "TCP"
+            # -- The spec field contains the values for the default livenessProbe.
+            # If you selected `custom: true`, this field holds the definition of the livenessProbe.
+            # @default -- See below
+
+          # -- Redainess probe configuration
+          # @default -- See below
+          readiness:
+            # -- Enable the readiness probe
+            enabled: true
+            # -- Set this to `true` if you wish to specify your own readinessProbe
+            custom: false
+            # -- sets the probe type when not using a custom probe
+            # @default -- "TCP"
+            # type: TCP
+            # -- The spec field contains the values for the default readinessProbe.
+            # If you selected `custom: true`, this field holds the definition of the readinessProbe.
+            # @default -- See below
+            # spec:
+            #   initialDelaySeconds: 0
+            #   periodSeconds: 10
+            #   timeoutSeconds: 1
+            #   failureThreshold: 3
+service:
+  main:
+    enabled: true
+    primary: true
+    type: ClusterIP
+    ports:
+      http:
+        enabled: true
+        primary: true
+        port: 3080
+        protocol: HTTP
+
+secrets:
+  env:
+    enabled: true
+    stringData:
+{{- $envFile := .Files.Get .Values.config.envFile }}
+{{- range $tempLine := splitList "\n" $envFile }}
+{{- $line := trim $tempLine -}}
+{{- if and $line (not (hasPrefix "#" $line )) }}
+{{- $kv := splitn "=" 2 $line }}
+{{- $kv._0 | nindent 6}}: {{ $kv._1 | quote }}
+{{- end }}
+{{- end }}
+
+
+{{- end }}
+
+{{ if .Values.app.enabled }}
+{{- $ctx := deepCopy . -}}
+{{- $_ := get .Values "app" | mergeOverwrite $ctx.Values -}}
+{{- $_ = include "librechat.app.hardcodedValues" . | fromYaml | merge $ctx.Values -}}
+{{- include "bjw-s.common.loader.all" $ctx }}
+{{ end }}

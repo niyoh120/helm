@@ -17,6 +17,9 @@ controllers:
           repository: ghcr.io/danny-avila/librechat-dev-api
           tag: latest
           pullPolicy: Always
+        env:
+          HOST: "0.0.0.0"
+          PORT: "3080"
         envFrom:
           - secretRef:
              name: {{ .Release.Name }}-env
@@ -51,7 +54,28 @@ controllers:
             #   initialDelaySeconds: 0
             #   periodSeconds: 10
             #   timeoutSeconds: 1
-            #   failureThreshold: 3
+      meilisearch:
+        image: 
+          repository: getmeili/meilisearch
+          tag: v1.7.3
+          pullPolicy: IfNotPresent
+        env:
+          MEILI_NO_ANALYTICS:
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Release.Name }}-env
+                key: MEILI_NO_ANALYTICS
+          MEILI_HOST:
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Release.Name }}-env
+                key: MEILI_HOST
+          MEILI_MASTER_KEY:
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Release.Name }}-env
+                key: MEILI_MASTER_KEY
+
 service:
   main:
     enabled: true
@@ -64,11 +88,21 @@ service:
         port: 3080
         protocol: HTTP
 
+persistence:
+  data:
+    enabled: true
+    type: emptyDir
+    advancedMounts:
+      main:
+        meilisearch:
+          - path: /meili_data
+            readOnly: false
+
 secrets:
   env:
     enabled: true
     stringData:
-{{- $envFile := .Files.Get .Values.config.envFile }}
+{{- $envFile := .Values.envFile }}
 {{- range $tempLine := splitList "\n" $envFile }}
 {{- $line := trim $tempLine -}}
 {{- if and $line (not (hasPrefix "#" $line )) }}
@@ -76,7 +110,6 @@ secrets:
 {{- $kv._0 | nindent 6}}: {{ $kv._1 | quote }}
 {{- end }}
 {{- end }}
-
 
 {{- end }}
 

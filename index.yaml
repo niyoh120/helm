@@ -400,6 +400,21 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/douban-api-rs-0.1.2/douban-api-rs-0.1.2.tgz
     version: 0.1.2
+  duck2api:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2024-07-19T01:39:46.97252097Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts
+      version: 2.0.3
+    description: A duck2api Helm chart for Kubernetes
+    digest: f4630ae60d253271386689cc8ed798a01ee52f003b3c23587df73e5a5667b502
+    name: duck2api
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/duck2api-0.1.0/duck2api-0.1.0.tgz
+    version: 0.1.0
   filebrowser:
   - apiVersion: v2
     appVersion: s6
@@ -767,6 +782,21 @@ entries:
     type: application
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/kimi-free-api-0.1.0/kimi-free-api-0.1.0.tgz
+    version: 0.1.0
+  librechat:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2024-07-19T01:39:47.076372135Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts
+      version: 2.0.3
+    description: A librechat Helm chart for Kubernetes
+    digest: 02e157ed3f3df118d665bbe9ca3c7ef244a5b88918d1364781313734b23ac0b4
+    name: librechat
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/librechat-0.1.0/librechat-0.1.0.tgz
     version: 0.1.0
   lx-music-sync-server:
   - apiVersion: v2
@@ -1176,4 +1206,4 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/wewe-rss-0.1.0/wewe-rss-0.1.0.tgz
     version: 0.1.0
-generated: "2024-06-28T01:15:27.116575347Z"
+generated: "2024-07-19T01:39:47.076493221Z"

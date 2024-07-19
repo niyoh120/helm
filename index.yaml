@@ -786,6 +786,20 @@ entries:
   librechat:
   - apiVersion: v2
     appVersion: latest
+    created: "2024-07-19T02:34:28.442778101Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts
+      version: 2.0.3
+    description: A librechat Helm chart for Kubernetes
+    digest: a81c1a168f5642ce803a7924e4d27609075439d800a9a29ba744647859a84c2e
+    name: librechat
+    type: application
+    urls:
+    - https://github.com/niyoh120/helm-charts/releases/download/librechat-0.1.1/librechat-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: latest
     created: "2024-07-19T01:39:47.076372135Z"
     dependencies:
     - name: common
@@ -1206,4 +1220,4 @@ entries:
     urls:
     - https://github.com/niyoh120/helm-charts/releases/download/wewe-rss-0.1.0/wewe-rss-0.1.0.tgz
     version: 0.1.0
-generated: "2024-07-19T01:39:47.076493221Z"
+generated: "2024-07-19T02:34:28.442945713Z"

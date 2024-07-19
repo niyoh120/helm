@@ -17,6 +17,10 @@ controllers:
           repository: ghcr.io/danny-avila/librechat-dev-api
           tag: latest
           pullPolicy: Always
+        env:
+          HOST: "0.0.0.0"
+          PORT: "3080"
+          
         envFrom:
           - secretRef:
              name: {{ .Release.Name }}-env
@@ -51,7 +55,20 @@ controllers:
             #   initialDelaySeconds: 0
             #   periodSeconds: 10
             #   timeoutSeconds: 1
-            #   failureThreshold: 3
+       meilisearch:
+        image: getmeili/meilisearch:v1.7.3
+        tag: v1.7.3
+        pullPolicy: IfNotPresent
+        envFrom:
+          - secretRef:
+             name: {{ .Release.Name }}-env
+        probes:
+          liveness:
+            enabled: true
+            custom: false
+          readiness:
+            enabled: true
+            custom: false
 service:
   main:
     enabled: true
@@ -77,6 +94,15 @@ secrets:
 {{- end }}
 {{- end }}
 
+persistence:
+  data:
+    enabled: true
+    type: emptyDir
+    advancedMounts:
+      main:
+        meilisearch:
+          - path: /meili_data
+            readOnly: false
 
 {{- end }}
 

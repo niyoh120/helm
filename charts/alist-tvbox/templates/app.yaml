@@ -15,7 +15,7 @@ controllers:
       main:
         image:
           repository: haroldli/xiaoya-tvbox
-          tag: native
+          tag: latest
           pullPolicy: Always
         env:
         - name: TZ
@@ -94,56 +94,6 @@ persistence:
           - path: /data
             readOnly: false
 
-ingress:
-  main:
-    # -- Enables or disables the ingress
-    enabled: true
-
-    # -- Make this the primary ingress (used in probes, notes, etc...).
-    # If there is more than 1 ingress, make sure that only 1 ingress is marked as primary.
-    primary: true
-
-    # -- Provide additional annotations which may be required.
-    annotations:
-      cert-manager.io/cluster-issuer: letsencrypt-prod 
-
-    # -- Provide additional labels which may be required.
-    labels: {}
-
-    # -- Set the ingressClass that is used for this ingress.
-    className: "traefik"
-
-    ## Configure the hosts for the ingress
-    hosts:
-        # -- Host address. Helm template can be passed.
-      - host: alist-tvbox.niyoh.top
-        ## Configure the paths for the host
-        paths:
-          - # -- Path.  Helm template can be passed.
-            path: /
-            pathType: Prefix
-            service:
-              # -- Overrides the service name reference for this path
-              # This can be an actual service name, or reference a service identifier
-              # from this values.yaml
-              name: main
-              # -- Overrides the service port number reference for this path
-              port: admin
-      - host: xiaoya.niyoh.top
-        paths:
-          - path: /
-            pathType: Prefix
-            service:
-              name: main
-              port: http
-
-    # -- Configure TLS for the ingress. Both secretName and hosts can process a Helm template.
-    tls: 
-     - secretName: alist-tvbox-tls-secret
-       hosts:
-         - alist-tvbox.niyoh.top
-         - xiaoya.niyoh.top
-
 {{- end }}
 
 {{ if .Values.app.enabled }}
@@ -151,5 +101,4 @@ ingress:
 {{- $_ := get .Values "app" | mergeOverwrite $ctx.Values -}}
 {{- $_ = include "alist-tvbox.app.hardcodedValues" . | fromYaml | merge $ctx.Values -}}
 {{- include "bjw-s.common.loader.all" $ctx }}
-{{- include "alist-tvbox.scheduledRestart" . }}
 {{ end }}
